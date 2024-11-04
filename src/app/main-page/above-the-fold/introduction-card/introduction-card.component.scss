@@ -1,0 +1,110 @@
+@import "../../../../styles.scss";
+
+.introduction-container {
+  z-index: 3;
+  position: absolute;
+  top: 25%;
+  right: 5%;
+  flex-direction: column;
+  transition: 0.2s;
+
+  @include dFlex();
+
+  > div {
+    @include dFlex();
+
+    > p {
+      font-size: 64px;
+      transform: rotate(-90deg);
+    }
+
+    .name {
+      font-size: 90px;
+      font-weight: 700;
+    }
+
+    .title {
+      font-size: 58px;
+      color: #9747ff;
+      transform: translateY(-20px);
+    }
+  }
+
+  // Media Queries
+  @media (max-width: 1360px) {
+    > div {
+      > p {
+        font-size: 55px;
+      }
+      .name {
+        font-size: 80px;
+      }
+      .title {
+        font-size: 50px;
+      }
+    }
+  }
+
+  @media (max-width: 1100px) {
+    > div {
+      > p {
+        font-size: 45px;
+      }
+      .name {
+        font-size: 70px;
+      }
+      .title {
+        font-size: 40px;
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    right: 20px;
+    top: 30%;
+    > div {
+      > p {
+        font-size: 40px;
+      }
+      .name {
+        font-size: 60px;
+      }
+      .title {
+        font-size: 35px;
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    position: relative;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    > div {
+      > div {
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 650px), (max-height: 700px) {
+    top: 0px;
+    > div {
+      @include dFlex($ai: stretch);
+      > p {
+        font-size: 30px;
+        margin-right: -40px;
+      }
+      .name {
+        font-size: 40px;
+      }
+      .title {
+        font-size: 25px;
+        transform: translateY(-5px);
+      }
+      > div {
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
