@@ -1,0 +1,30 @@
+<nav>
+  <a href="/"
+    ><img class="logo" src="../../../assets/logo.png" alt="Logo" />
+  </a>
+
+  <ul>
+    <a href="about-me" class="active">About me</a>
+    <a href="skills"> Skills</a>
+    <a href="portfolio">Portfolio</a>
+  </ul>
+
+  <div
+    class="burger-menu"
+    (click)="toggleMenu()"
+    [ngClass]="{ open: isMenuOpen }"
+  >
+    <div class="top-line burger-menu-line"></div>
+    <div class="middle-line burger-menu-line"></div>
+    <div class="bottom-line burger-menu-line"></div>
+  </div>
+</nav>
+
+<div class="mobile-nav" [ngClass]="{ open: isMenuOpen }">
+  <ul>
+    <a href="about-me">About me</a>
+    <a href="skills">My skills</a>
+    <a href="portfolio">Portfolio</a>
+    <a href="contact">Contact</a>
+  </ul>
+</div>

@@ -15,8 +15,18 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.body {
+  position: relative;
+  overflow-x: hidden;
+}
+
 button {
   border: none;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
 }
 
 img {
