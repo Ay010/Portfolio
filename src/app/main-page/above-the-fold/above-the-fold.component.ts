@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../../button/button.component';
 import { IntroductionCardComponent } from './introduction-card/introduction-card.component';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-above-the-fold',
@@ -9,4 +9,10 @@ import { IntroductionCardComponent } from './introduction-card/introduction-card
   templateUrl: './above-the-fold.component.html',
   styleUrl: './above-the-fold.component.scss',
 })
-export class AboveTheFoldComponent {}
+export class AboveTheFoldComponent {
+  constructor(public sharedService: SharedService) {}
+
+  navigateToSection(sectionId: string) {
+    this.sharedService.scrollToSection(sectionId);
+  }
+}

@@ -9,6 +9,7 @@
   margin: 0;
   box-sizing: border-box;
   transition: 0.2s;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -20,6 +21,16 @@ body {
   overflow-x: hidden;
 }
 
+.overflow-hidden {
+  position: relative;
+  overflow: hidden;
+}
+
+section {
+  background-color: #141d2f;
+  color: #ffffff;
+}
+
 button {
   border: none;
 }
@@ -27,6 +38,7 @@ button {
 a {
   color: unset;
   text-decoration: none;
+  cursor: pointer;
 }
 
 img {

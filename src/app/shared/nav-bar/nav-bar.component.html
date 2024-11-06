@@ -4,9 +4,9 @@
   </a>
 
   <ul>
-    <a href="about-me" class="active">About me</a>
-    <a href="skills"> Skills</a>
-    <a href="portfolio">Portfolio</a>
+    <a (click)="navigateToSection('about-me')">About me</a>
+    <a (click)="navigateToSection('skills')">My skills</a>
+    <a (click)="navigateToSection('portfolio')">Portfolio</a>
   </ul>
 
   <div
@@ -20,11 +20,15 @@
   </div>
 </nav>
 
-<div class="mobile-nav" [ngClass]="{ open: isMenuOpen }">
+<div
+  class="mobile-nav"
+  (click)="closeMobileNav()"
+  [ngClass]="{ open: isMenuOpen }"
+>
   <ul>
-    <a href="about-me">About me</a>
-    <a href="skills">My skills</a>
-    <a href="portfolio">Portfolio</a>
-    <a href="contact">Contact</a>
+    <a (click)="navigateToSection('about-me')">About me</a>
+    <a (click)="navigateToSection('skills')">My skills</a>
+    <a (click)="navigateToSection('portfolio')">Portfolio</a>
+    <a (click)="navigateToSection('contact')">Contact</a>
   </ul>
 </div>
