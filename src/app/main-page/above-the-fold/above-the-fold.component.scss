@@ -55,7 +55,7 @@ section {
   position: absolute;
   right: 0;
   left: 0;
-  top: 610px;
+  bottom: -80px;
   height: 400px;
   width: 100%;
   z-index: 1;
@@ -65,7 +65,7 @@ section {
   font-size: 23px;
   position: absolute;
   right: 20px;
-  top: 775px;
+  bottom: 120px;
   transform: rotate(90deg);
   z-index: 10;
   cursor: pointer;

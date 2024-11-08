@@ -1,0 +1,47 @@
+@import "../../../styles.scss";
+
+section {
+  flex-direction: column;
+  padding: 50px 100px;
+
+  @include dFlex();
+
+  > h1 {
+    position: relative;
+
+    &::before {
+      content: "";
+      height: 4px;
+      width: 20%;
+      background-color: #9747ff;
+      border-radius: 10px;
+      position: absolute;
+      left: calc(-20% + -30px);
+      top: 50%;
+      margin-right: 30px;
+      transform: translateY(-50%);
+    }
+    &::after {
+      content: "";
+      height: 4px;
+      width: 50vw;
+      background-color: #9747ff;
+      border-radius: 10px;
+      position: absolute;
+      margin-left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  @media (max-width: 850px) {
+    padding: 50px 30px;
+  }
+}
+
+.all-projects {
+  padding: 50px 0;
+  flex-direction: column;
+
+  @include dFlex($gap: 100px);
+}

@@ -1,0 +1,4 @@
+<div [ngClass]="{ 'last-icon': lastIcon }">
+  <div class="icon-container" [innerHTML]="sanitizedIcon"></div>
+  <p [ngClass]="{ purple: lastIcon }">{{ iconName }}</p>
+</div>

@@ -1,0 +1,49 @@
+<section id="skills">
+  <img class="green-shadow" src="../../../assets/Green shadow 2.png" alt="" />
+
+  <div class="mobile-headline-container">
+    <h1>My skills</h1>
+    <p>
+      I have gained experience in building projects with different frontend
+      technologies and concepts.
+    </p>
+  </div>
+
+  <div class="icon-container">
+    <app-skill-icon
+      *ngFor="let iconJSON of allIcons"
+      [icon]="iconJSON.icon"
+      [iconName]="iconJSON.iconName"
+    ></app-skill-icon>
+
+    <app-skill-icon
+      class="last-icon"
+      [icon]="lastIcon"
+      [iconName]="lastIconName"
+      [lastIcon]="true"
+    >
+    </app-skill-icon>
+  </div>
+
+  <div class="text-container">
+    <div class="headline-container">
+      <h1>My skills</h1>
+      <p>
+        I have gained experience in building projects with different frontend
+        technologies and concepts.
+      </p>
+    </div>
+
+    <div>
+      <div>
+        <h2>Looking for <span class="purple">another skill?</span></h2>
+        <p>
+          Feel free to contact me. I look forward to expanding on my previous
+          knowledge.
+        </p>
+      </div>
+
+      <app-button [text]="'Get in touch'"></app-button>
+    </div>
+  </div>
+</section>

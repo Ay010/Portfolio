@@ -1,0 +1,92 @@
+@import "../../../../styles.scss";
+
+.project-container {
+  width: 100%;
+
+  @include dFlex($gap: 35px);
+
+  > img {
+    width: 80%;
+  }
+
+  > div {
+    width: 50%;
+
+    > h2 {
+      font-size: 32px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+
+    text-align: center;
+
+    > div {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 850px) {
+    > img {
+      width: 100%;
+    }
+  }
+}
+
+.used-technologies-container {
+  color: #70e61c;
+  font-size: 23px;
+  padding: 15px 0;
+  flex-wrap: wrap;
+
+  @include dFlex(start, $gap: 10px);
+
+  @media (max-width: 1000px) {
+    @include dFlex(center, $gap: 10px);
+  }
+}
+
+.btn-container {
+  padding-top: 40px;
+  width: 100%;
+
+  @include dFlex(start, $gap: 70px);
+
+  @media (max-width: 1000px) {
+    @include dFlex(center, $gap: 70px);
+  }
+
+  @media (max-width: 850px) {
+    @include dFlex(center, $gap: 40px);
+  }
+}
+
+.reverse {
+  flex-direction: row-reverse;
+  text-align: end;
+
+  .used-technologies-container {
+    @include dFlex(end, $gap: 10px);
+    @media (max-width: 1000px) {
+      @include dFlex(center, $gap: 10px);
+    }
+  }
+
+  .btn-container {
+    @include dFlex(end, $gap: 70px);
+
+    @media (max-width: 1000px) {
+      @include dFlex(center, $gap: 70px);
+    }
+
+    @media (max-width: 850px) {
+      @include dFlex(center, $gap: 30px);
+    }
+  }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}

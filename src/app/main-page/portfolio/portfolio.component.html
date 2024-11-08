@@ -1,0 +1,17 @@
+<section id="portfolio">
+  <h1>Portfolio</h1>
+  <p>
+    Explore a selection of my work here - Interact with projects to see my
+    skills in action.
+  </p>
+  <div class="all-projects">
+    <app-project-card
+      *ngFor="let project of projects; let i = index"
+      [projectName]="project.projectName"
+      [projectDescription]="project.projectDescription"
+      [usedTechnologies]="project.usedTechnologies"
+      [projectImage]="project.projectImage"
+      [reverse]="i % 2 !== 0"
+    ></app-project-card>
+  </div>
+</section>

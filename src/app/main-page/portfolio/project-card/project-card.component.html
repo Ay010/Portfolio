@@ -1,0 +1,20 @@
+<div [ngClass]="{ reverse: reverse }" class="project-container">
+  <img src="../../../../assets/{{ projectImage }}" alt="" />
+
+  <div>
+    <h2 class="purple">{{ projectName }}</h2>
+
+    <div class="used-technologies-container">
+      <p *ngFor="let tech of usedTechnologies; let i = index">
+        {{ tech }}<span *ngIf="i < usedTechnologies.length - 1"> | </span>
+      </p>
+    </div>
+
+    <p>{{ projectDescription }}</p>
+
+    <div class="btn-container">
+      <app-button [buttonType]="'purple-bg'" [text]="'Live test'"></app-button>
+      <app-button [buttonType]="'green-border'" [text]="'Github'"></app-button>
+    </div>
+  </div>
+</div>

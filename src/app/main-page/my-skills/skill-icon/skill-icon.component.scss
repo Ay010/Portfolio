@@ -1,0 +1,43 @@
+@import "../../../../styles.scss";
+
+div {
+  max-width: 90px;
+  min-width: 90px;
+  flex-direction: column;
+
+  @include dFlex($gap: 10px);
+
+  &:hover .icon-container {
+    transform: translateY(-10px);
+  }
+
+  .icon-container {
+    @include dFlex();
+  }
+
+  p {
+    text-align: center;
+    font-weight: 700;
+  }
+
+  @media (max-width: 1100px) {
+    max-width: 80px;
+    min-width: 80px;
+  }
+
+  @media (max-width: 1000px) {
+    max-width: 70px;
+    min-width: 70px;
+  }
+}
+
+.last-icon {
+  &:hover p {
+    color: white;
+  }
+
+  &:hover path,
+  &:hover svg {
+    fill: white;
+  }
+}
