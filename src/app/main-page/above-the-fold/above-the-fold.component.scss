@@ -2,8 +2,8 @@
 
 section {
   height: 100vh;
-  overflow-y: hidden;
   position: relative;
+  z-index: 1;
 
   .header {
     padding-top: 110px;
@@ -41,7 +41,7 @@ section {
     width: 110px;
     height: 4px;
     border-radius: 10px;
-    background-color: #9747ff;
+    background-color: $primary-color-two;
   }
 
   a {
@@ -78,6 +78,11 @@ section {
   &:hover {
     transform: rotate(90deg) translateX(20px);
   }
+}
+
+.scroll-text-link {
+  position: relative;
+  z-index: 10;
 }
 
 // Media Queries
@@ -132,5 +137,21 @@ section {
     .line {
       margin-right: -25px;
     }
+  }
+}
+
+.purple-shadow {
+  position: absolute;
+  right: 0;
+  bottom: -550px;
+  z-index: 2;
+
+  @media (max-width: 850px) {
+    height: 600px;
+    bottom: -700px;
+  }
+
+  @media (max-width: 600px) {
+    height: 500px;
   }
 }

@@ -23,7 +23,7 @@ section {
     font-size: 16px;
     flex-direction: column;
 
-    @include dFlex($gap: 24px);
+    @include dFlex($ai: start, $gap: 24px);
 
     > div {
       @include dFlex();
@@ -65,7 +65,7 @@ section {
     overflow: hidden;
     width: 453px;
     height: 453px;
-    border: 4px solid #70e61c;
+    border: 4px solid $primary-color;
     border-radius: 100%;
 
     @include dFlex();
@@ -76,7 +76,7 @@ section {
   }
 
   > .line {
-    background-color: #70e61c;
+    background-color: $primary-color;
     width: 20%;
     height: 4px;
   }
@@ -105,11 +105,4 @@ section {
   @media (max-width: 850px) {
     display: none;
   }
-}
-
-.purple-shadow {
-  position: absolute;
-  right: 0;
-  top: -200px;
-  z-index: 1;
 }

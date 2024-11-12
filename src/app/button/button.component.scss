@@ -1,5 +1,7 @@
+@import "../../styles.scss";
+
 button {
-  background-color: #70e61c;
+  background-color: $primary-color;
   color: white;
   font-size: 23px;
   box-shadow: 4px 4px 4px 0px #00000040;
@@ -9,7 +11,7 @@ button {
   transition: 0.1s ease-out;
 
   &:hover {
-    background-color: #9747ff;
+    background-color: $primary-color-two;
     padding: 20px 40px;
   }
 }
@@ -21,7 +23,7 @@ button {
 }
 
 .purple-bg {
-  background-color: #9747ff;
+  background-color: $primary-color-two;
   color: white;
   font-size: 23px;
   border-radius: 10px;
@@ -30,7 +32,7 @@ button {
   transition: 0.1s ease-out;
 
   &:hover {
-    background-color: #70e61c;
+    background-color: $primary-color;
     padding: 15px 30px;
   }
 }
@@ -43,7 +45,7 @@ button {
 
 .green-border {
   background-color: #0000;
-  border: 1px solid #70e61c;
+  border: 1px solid $primary-color;
   color: white;
   font-size: 23px;
   border-radius: 10px;
@@ -52,7 +54,7 @@ button {
   transition: 0.1s ease-out;
 
   &:hover {
-    background-color: #70e61c;
+    background-color: $primary-color;
     padding: 15px 30px;
   }
 }
