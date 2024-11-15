@@ -42,6 +42,26 @@ section {
 .all-projects {
   padding: 50px 0;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 
   @include dFlex($gap: 100px);
+}
+
+.purple-shadow {
+  position: absolute;
+  top: 1000px;
+  left: -25%;
+  width: 700px;
+
+  @media (max-width: 1000px) {
+    top: 800px;
+    left: unset;
+    width: 500px;
+  }
+
+  @media (max-width: 650px) {
+    top: 700px;
+    width: 400px;
+  }
 }

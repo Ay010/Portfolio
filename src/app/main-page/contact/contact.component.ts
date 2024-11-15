@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ButtonComponent } from '../../button/button.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-contact',
@@ -19,6 +20,8 @@ export class ContactComponent {
   };
 
   public submitAttempted = false; // Flag to track if submit was attempted
+
+  constructor(public sharedService: SharedService) {}
 
   toggleAgree() {
     this.contactData.agree = !this.contactData.agree;

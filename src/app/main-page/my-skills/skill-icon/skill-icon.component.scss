@@ -1,6 +1,6 @@
 @import "../../../../styles.scss";
 
-div {
+.skill-container {
   max-width: 90px;
   min-width: 90px;
   flex-direction: column;
@@ -32,12 +32,47 @@ div {
 }
 
 .last-icon {
-  &:hover p {
-    color: white;
+  position: relative;
+  &:hover {
+    .icon-container {
+      transform: translateY(0);
+      filter: brightness(10);
+    }
+
+    p {
+      filter: brightness(10);
+    }
+    .last-icon-pop-up {
+      opacity: 1;
+      @include dFlex();
+    }
+  }
+}
+
+.last-icon-pop-up {
+  display: none;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  max-width: 180px;
+  min-width: 180px;
+  position: absolute;
+  bottom: 140px;
+  left: 0;
+
+  > div {
+    @include dFlex($gap: 30px);
   }
 
-  &:hover path,
-  &:hover svg {
-    fill: white;
+  > p {
+    font-weight: 400;
+  }
+
+  .triangle {
+    position: absolute;
+    bottom: -15px;
+    left: 35px;
   }
 }

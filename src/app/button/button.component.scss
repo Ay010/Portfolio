@@ -14,6 +14,16 @@ button {
     background-color: $primary-color-two;
     padding: 20px 40px;
   }
+
+  &:active {
+    background-color: #ffffff;
+    color: black;
+    padding: 15px 30px;
+  }
+
+  @media (max-width: 650px) {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -35,10 +45,14 @@ button {
     background-color: $primary-color;
     padding: 15px 30px;
   }
-}
 
-@media (max-width: 650px) {
-  button {
+  &:active {
+    background-color: #ffffff;
+    color: black;
+    padding: 15px 30px;
+  }
+
+  @media (max-width: 650px) {
     font-size: 16px;
   }
 }
@@ -57,10 +71,14 @@ button {
     background-color: $primary-color;
     padding: 15px 30px;
   }
-}
 
-@media (max-width: 650px) {
-  button {
+  &:active {
+    background-color: #ffffff;
+    color: $primary-color-two;
+    padding: 15px 30px;
+  }
+
+  @media (max-width: 650px) {
     font-size: 16px;
   }
 }

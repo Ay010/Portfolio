@@ -8,5 +8,8 @@
     </div>
   </div>
 
-  <app-button [text]="'Let’s talk!'"></app-button>
+  <app-button
+    (click)="sharedService.scrollToSection('contact')"
+    [text]="'Let’s talk!'"
+  ></app-button>
 </div>

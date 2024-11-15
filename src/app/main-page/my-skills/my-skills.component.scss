@@ -146,6 +146,8 @@ section {
   bottom: -500px;
   height: 800px;
 
+  transform: translate(-60%);
+
   @media (max-width: 850px) {
     bottom: -100px;
     height: 700px;
@@ -154,5 +156,6 @@ section {
   @media (max-width: 500px) {
     bottom: 200px;
     height: 600px;
+    transform: translate(-70%);
   }
 }

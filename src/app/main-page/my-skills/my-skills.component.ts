@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ButtonComponent } from '../../button/button.component';
 import { SkillIconComponent } from './skill-icon/skill-icon.component';
 import { NgFor } from '@angular/common';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-my-skills',
@@ -11,6 +12,8 @@ import { NgFor } from '@angular/common';
   styleUrl: './my-skills.component.scss',
 })
 export class MySkillsComponent {
+  constructor(public sharedService: SharedService) {}
+
   public lastIcon: string = `<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_126573_1248)">
 <path d="M49.8288 25.245L30.6154 36.1892C30.2695 36.3926 29.8423 36.3926 29.4863 36.1892L10.2729 25.245C9.52025 24.8178 9.52025 23.7294 10.2729 23.2921L29.4863 12.3479C29.8322 12.1444 30.2594 12.1444 30.6154 12.3479L49.8288 23.2921C50.5814 23.7193 50.5814 24.8076 49.8288 25.245Z" fill="#9747FF"/>

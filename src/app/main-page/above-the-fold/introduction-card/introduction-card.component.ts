@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../../button/button.component';
+import { SharedService } from '../../../shared/shared.service';
 
 @Component({
   selector: 'app-introduction-card',
@@ -8,4 +9,6 @@ import { ButtonComponent } from '../../../button/button.component';
   templateUrl: './introduction-card.component.html',
   styleUrl: './introduction-card.component.scss',
 })
-export class IntroductionCardComponent {}
+export class IntroductionCardComponent {
+  constructor(public sharedService: SharedService) {}
+}

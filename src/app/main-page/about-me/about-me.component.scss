@@ -26,11 +26,15 @@ section {
     @include dFlex($ai: start, $gap: 24px);
 
     > div {
-      @include dFlex();
+      @include dFlex($ai: start);
 
       > svg {
         min-width: 50px;
         margin-right: 15px;
+
+        &:hover {
+          transform: scale(1.4);
+        }
       }
     }
   }

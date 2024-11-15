@@ -1,0 +1,89 @@
+@import "../../../styles.scss";
+
+footer {
+  padding: 100px 100px;
+  border-top: solid 4px $primary-color;
+
+  @include dFlex(space-between);
+
+  > p {
+    font-size: 23px;
+  }
+
+  .logo-container {
+    position: relative;
+    flex-direction: column;
+
+    @include dFlex(space-between);
+
+    .logo {
+      width: 220px;
+    }
+  }
+
+  @media (max-width: 850px) {
+    padding: 50px 30px;
+
+    flex-direction: column;
+
+    @include dFlex(space-between, $gap: 35px);
+
+    .logo-container {
+      .logo {
+        width: 200px;
+      }
+
+      p {
+        display: none;
+      }
+    }
+  }
+}
+
+.text-link {
+  position: absolute;
+  left: 0;
+  bottom: -25px;
+  padding: 5px 10px 5px 10px;
+
+  &::after {
+    transition: 0.1s ease-out;
+    content: "";
+    background-color: $primary-color;
+    width: 0px;
+    height: 2px;
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    // opacity: 0;
+  }
+}
+
+.text-link:hover {
+  &::after {
+    opacity: 1;
+    width: 60px;
+  }
+}
+
+.text-link-mobile {
+  display: none;
+  position: relative;
+  left: unset;
+  bottom: unset;
+
+  @media (max-width: 850px) {
+    display: flex;
+  }
+}
+
+.icon-container {
+  @include dFlex($gap: 35px);
+
+  svg {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

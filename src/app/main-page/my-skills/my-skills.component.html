@@ -43,7 +43,10 @@
         </p>
       </div>
 
-      <app-button [text]="'Get in touch'"></app-button>
+      <app-button
+        (click)="sharedService.scrollToSection('contact')"
+        [text]="'Get in touch'"
+      ></app-button>
     </div>
   </div>
 </section>

@@ -4,9 +4,21 @@
   </a>
 
   <ul>
-    <a (click)="navigateToSection('about-me')">About me</a>
-    <a (click)="navigateToSection('skills')">My skills</a>
-    <a (click)="navigateToSection('portfolio')">Portfolio</a>
+    <a
+      (click)="navigateToSection('about-me')"
+      [ngClass]="{ active: isActive('about-me') }"
+      >About me</a
+    >
+    <a
+      (click)="navigateToSection('skills')"
+      [ngClass]="{ active: isActive('skills') }"
+      >My skills</a
+    >
+    <a
+      (click)="navigateToSection('portfolio')"
+      [ngClass]="{ active: isActive('portfolio') }"
+      >Portfolio</a
+    >
   </ul>
 
   <div
