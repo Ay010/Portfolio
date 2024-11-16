@@ -1,0 +1,49 @@
+@import "../../../../styles.scss";
+
+.testimonial-list-container {
+  width: 100%;
+  padding-top: 80px;
+  flex-direction: column;
+
+  @include dFlex($gap: 30px);
+}
+
+.nav {
+  @include dFlex($gap: 20px);
+
+  svg {
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 5px;
+    box-sizing: unset;
+    border: solid 2px rgba(0, 0, 0, 0);
+    transition: 0.1s;
+    &:hover {
+      border: solid 2px $primary-color;
+    }
+  }
+
+  .dot-list {
+    @include dFlex($gap: 20px);
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      background-color: $primary-color-two;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+
+    .active-dot {
+      background-color: $primary-color;
+    }
+  }
+}
+
+app-testimonial-card {
+  width: 100%;
+}

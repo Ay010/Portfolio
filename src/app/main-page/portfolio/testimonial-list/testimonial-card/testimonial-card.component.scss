@@ -1,0 +1,125 @@
+@import "../../../../../styles.scss";
+
+.card-container {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+
+  @include dFlex($gap: 50px);
+
+  @media (max-width: 850px) {
+    flex-direction: column-reverse;
+
+    @include dFlex($gap: 30px);
+  }
+}
+
+.card {
+  width: 100%;
+  min-height: 270px;
+  border: 4px solid #70e61c;
+  padding: 48px 96px;
+  border-radius: 32px;
+  flex-direction: column;
+  background-color: $background-color;
+  position: relative;
+
+  @include dFlex(space-between, start, $gap: 44px);
+
+  > div {
+    width: 100%;
+
+    @include dFlex($gap: 16px);
+
+    .line {
+      background-color: $primary-color-two;
+      height: 2px;
+      width: 100%;
+    }
+
+    > p {
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    padding: 30px 40px;
+  }
+
+  @media (max-width: 850px) {
+    padding: 16px;
+
+    > div {
+      flex-direction: column;
+
+      @include dFlex($ai: start, $gap: 16px);
+
+      .line {
+        width: 55px;
+      }
+    }
+  }
+}
+
+.img-container {
+  position: relative;
+
+  .img-circle {
+    border-radius: 100%;
+    border: 4px solid $primary-color-two;
+    min-height: 270px;
+    min-width: 270px;
+    overflow: hidden;
+    position: relative;
+
+    @include dFlex($ai: start);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0px;
+    }
+  }
+
+  .img-line {
+    background-color: $primary-color-two;
+    position: absolute;
+    width: 100vh;
+    height: 4px;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+  }
+
+  @media (max-width: 850px) {
+    .img-circle {
+      min-height: 140px;
+      min-width: 140px;
+    }
+  }
+}
+
+svg {
+  position: absolute;
+  left: -60px;
+  top: -30px;
+
+  @media (max-width: 850px) {
+    left: -15px;
+    top: -50px;
+    width: 70px;
+  }
+}
+
+.preload-images {
+  display: none; /* Verstecke die Elemente */
+
+  div {
+    width: 0; /* Keine sichtbare Größe */
+    height: 0; /* Keine sichtbare Größe */
+    background-size: cover; /* Bild wird vollständig geladen */
+    background-repeat: no-repeat; /* Verhindert wiederholte Hintergründe */
+  }
+}

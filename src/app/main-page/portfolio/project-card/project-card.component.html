@@ -13,8 +13,18 @@
     <p>{{ projectDescription }}</p>
 
     <div class="btn-container">
-      <app-button [buttonType]="'purple-bg'" [text]="'Live test'"></app-button>
-      <app-button [buttonType]="'green-border'" [text]="'Github'"></app-button>
+      <a target="_blank" href=" {{ websiteLink }} "
+        ><app-button
+          [buttonType]="'purple-bg'"
+          [text]="'Live test'"
+        ></app-button
+      ></a>
+      <a target="_blank" href="{{ githubLink }}"
+        ><app-button
+          [buttonType]="'green-border'"
+          [text]="'Github'"
+        ></app-button
+      ></a>
     </div>
   </div>
 </div>

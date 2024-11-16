@@ -63,7 +63,15 @@
   left: 0;
 
   > div {
+    padding-top: 10px;
+
     @include dFlex($gap: 30px);
+
+    > div {
+      flex-direction: column;
+
+      @include dFlex();
+    }
   }
 
   > p {

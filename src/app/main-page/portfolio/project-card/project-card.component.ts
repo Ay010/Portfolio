@@ -14,5 +14,7 @@ export class ProjectCardComponent {
   @Input() projectDescription: string = '';
   @Input() usedTechnologies: string[] = [];
   @Input() projectImage: string = '';
+  @Input() githubLink: string = '';
+  @Input() websiteLink: string = '';
   @Input() reverse: boolean = false;
 }
