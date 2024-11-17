@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '../../button/button.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { SharedService } from '../../shared/shared.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -16,23 +17,48 @@ export class ContactComponent {
     name: '',
     email: '',
     message: '',
-    agree: false, // Hinzugefügt: Checkbox-Feld für Zustimmung
   };
+  public agree = false;
+  public submitAttempted = false;
 
-  public submitAttempted = false; // Flag to track if submit was attempted
+  mailTest = true;
+
+  http = inject(HttpClient);
+
+  post = {
+    endPoint: 'https://deineDomain.de/sendMail.php',
+    body: (payload: any) => JSON.stringify(payload),
+    options: {
+      headers: {
+        'Content-Type': 'text/plain',
+        responseType: 'text',
+      },
+    },
+  };
 
   constructor(public sharedService: SharedService) {}
 
   toggleAgree() {
-    this.contactData.agree = !this.contactData.agree;
+    this.agree = !this.agree;
     this.submitAttempted = true;
   }
 
-  onSubmit(form: NgForm) {
-    if (form.valid) {
-      console.log('Form Data:', form.value);
-    } else {
-      console.log('Form is invalid');
+  onSubmit(ngForm: NgForm) {
+    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
+      this.http
+        .post(this.post.endPoint, this.post.body(this.contactData))
+        .subscribe({
+          next: (response) => {
+            ngForm.resetForm();
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => console.info('send post complete'),
+        });
+    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+      console.log(ngForm.value);
+      ngForm.resetForm();
     }
   }
 }

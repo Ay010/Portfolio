@@ -3,6 +3,7 @@
 section {
   padding: 50px 100px 170px 100px;
   flex-direction: column;
+  overflow: hidden;
 
   @include dFlex();
 
@@ -22,6 +23,8 @@ section {
   }
 
   > .content {
+    position: relative;
+    z-index: 1;
     width: 100%;
     padding-top: 30px;
 
@@ -268,5 +271,18 @@ form {
   @media (max-width: 850px) {
     right: 30px;
     bottom: 40px;
+  }
+}
+
+.purple-shadow {
+  position: absolute;
+  bottom: 70px;
+  left: 80px;
+  transform: translate(-50%, 50%);
+
+  @media (max-width: 850px) {
+    width: 350px;
+    bottom: 10px;
+    left: 50px;
   }
 }

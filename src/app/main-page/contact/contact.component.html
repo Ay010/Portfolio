@@ -152,7 +152,7 @@
             <div class="check-box">
               <!-- SVG wird nur angezeigt, wenn contactData.agree true ist -->
               <svg
-                *ngIf="contactData.agree"
+                *ngIf="agree"
                 width="100"
                 height="100"
                 viewBox="0 0 100 100"
@@ -178,7 +178,7 @@
       </div>
 
       <div class="error-container">
-        <p class="error-text" *ngIf="!contactData.agree && submitAttempted">
+        <p class="error-text" *ngIf="!agree && submitAttempted">
           Please agree to the privacy policy
         </p>
       </div>
@@ -187,7 +187,7 @@
         id="button"
         type="submit"
         value="Send message :)"
-        [disabled]="!contactForm.valid || !contactData.agree"
+        [disabled]="!contactForm.valid || !agree"
       />
     </form>
   </div>
@@ -209,4 +209,10 @@
       />
     </svg>
   </div>
+
+  <img
+    class="purple-shadow"
+    src="../../../assets/33. Purple shadow Footer.png"
+    alt=""
+  />
 </section>
