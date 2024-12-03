@@ -1,218 +1,286 @@
-<section id="contact">
-  <h1>Contact</h1>
+<div class="wrap-container">
+  <section id="contact" class="wrap">
+    <h1>
+      <span *ngIf="sharedService.language === 'en'">Contact</span>
+      <span *ngIf="sharedService.language === 'de'">Kontakt</span>
+    </h1>
 
-  <div class="content">
-    <div>
-      <h2>Got a problem to solve?</h2>
-      <p>
-        Contact me through this form, I am interested in hearing from you,
-        knowing your ideas and contributing to your projects with my work.
-      </p>
-      <p>Need a Frontend developer? <span class="bold">Contact me!</span></p>
+    <div class="content">
+      <div>
+        <h2>
+          <span *ngIf="sharedService.language === 'en'"
+            >Got a problem to solve?</span
+          >
+          <span *ngIf="sharedService.language === 'de'"
+            >Hast du ein Problem zu lösen?</span
+          >
+        </h2>
+
+        <p>
+          <span *ngIf="sharedService.language === 'en'">
+            Contact me through this form, I am interested in hearing from you,
+            knowing your ideas and contributing to your projects with my work.
+          </span>
+          <span *ngIf="sharedService.language === 'de'">
+            Kontaktieren Sie mich über dieses Formular. Ich bin daran
+            interessiert, von Ihnen zu hören, Ihre Ideen kennenzulernen und mit
+            meiner Arbeit zu Ihren Projekten beizutragen.
+          </span>
+        </p>
+
+        <p>
+          <span *ngIf="sharedService.language === 'en'">
+            Need a Frontend developer? <span class="bold">Contact me!</span>
+          </span>
+          <span *ngIf="sharedService.language === 'de'">
+            Benötigen Sie einen Frontend-Entwickler?
+            <span class="bold">Kontaktieren Sie mich!</span>
+          </span>
+        </p>
+      </div>
+
+      <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+        <div class="input-container">
+          <input
+            type="text"
+            name="name"
+            [placeholder]="
+              sharedService.language === 'en' ? 'Your name' : 'Ihr Name'
+            "
+            [(ngModel)]="contactData.name"
+            required
+            #name="ngModel"
+          />
+
+          <p class="error-text" *ngIf="name.invalid && name.dirty">
+            <span *ngIf="sharedService.language === 'en'"
+              >Your name is required</span
+            >
+            <span *ngIf="sharedService.language === 'de'"
+              >Ihr Name ist erforderlich</span
+            >
+          </p>
+
+          <div class="status-icon">
+            <svg
+              *ngIf="name.valid && name.dirty"
+              width="25"
+              height="26"
+              viewBox="0 0 25 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.4717 0.5C5.61225 0.5 0 6.11225 0 12.9717C0 19.8878 5.61225 25.5 12.4717 25.5C19.3878 25.5 24.9433 19.8878 24.9433 12.9717C25 6.11225 19.3878 0.5 12.4717 0.5ZM20.1247 6.96258L11.9615 20.398C11.678 20.8515 11.2245 21.1916 10.6576 21.1916C10.6009 21.1916 10.5442 21.1916 10.4875 21.1916C9.97732 21.1916 9.52381 20.9649 9.18367 20.6247L5.04535 15.8061C4.42177 15.1259 4.47846 14.0488 5.21542 13.4252C5.89569 12.8016 7.02948 12.8583 7.59637 13.5952L10.2608 16.6565L17.1769 5.20522C17.6871 4.41157 18.7075 4.12812 19.5011 4.63832C20.3515 5.09184 20.5782 6.16893 20.1247 6.96258Z"
+                fill="#70E61C"
+              />
+            </svg>
+
+            <svg
+              *ngIf="name.invalid && name.dirty"
+              width="26"
+              height="26"
+              viewBox="0 0 26 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.4753 0.5C6.57199 0.5 0.950684 6.1213 0.950684 13.0247C0.950684 19.928 6.57199 25.5493 13.4753 25.5493C20.3787 25.5493 26 19.928 26 13.0247C26 6.1213 20.3787 0.5 13.4753 0.5ZM14.856 21.999C14.4615 22.3442 14.0177 22.5414 13.4753 22.5414C12.9329 22.5414 12.4891 22.3442 12.0947 21.999C11.7002 21.6538 11.503 21.1607 11.503 20.5197C11.503 19.9773 11.7002 19.5335 12.0947 19.1391C12.4891 18.7446 12.9329 18.5473 13.5246 18.5473C14.0671 18.5473 14.5602 18.7446 14.9546 19.1391C15.3491 19.5335 15.5463 19.9773 15.5463 20.5197C15.4477 21.1607 15.2505 21.6538 14.856 21.999ZM15.3491 8.34024L14.7574 14.8491C14.7081 15.6381 14.5602 16.2298 14.3629 16.6243C14.1657 17.0187 13.8205 17.2653 13.3767 17.2653C12.8836 17.2653 12.5878 17.068 12.3905 16.6736C12.1933 16.2791 12.0947 15.6381 11.996 14.8491L11.5523 8.53747C11.4536 7.30473 11.4536 6.41716 11.4536 5.87475C11.4536 5.13511 11.6509 4.5927 12.0454 4.14892C12.4398 3.75444 12.9329 3.5572 13.574 3.5572C14.3136 3.5572 14.856 3.80375 15.1026 4.34615C15.3491 4.88856 15.497 5.6282 15.497 6.6144C15.4477 7.1568 15.4477 7.74852 15.3491 8.34024Z"
+                fill="#E61C40"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="input-container">
+          <input
+            type="email"
+            name="email"
+            [placeholder]="
+              sharedService.language === 'en' ? 'Your email' : 'Ihre E-Mail'
+            "
+            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+            [(ngModel)]="contactData.email"
+            required
+            #email="ngModel"
+          />
+
+          <p class="error-text" *ngIf="email.invalid && email.dirty">
+            <span *ngIf="sharedService.language === 'en'"
+              >Your email is required</span
+            >
+            <span *ngIf="sharedService.language === 'de'"
+              >Ihre E-Mail ist erforderlich</span
+            >
+          </p>
+
+          <div class="status-icon">
+            <svg
+              *ngIf="email.valid && email.dirty"
+              width="25"
+              height="26"
+              viewBox="0 0 25 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.4717 0.5C5.61225 0.5 0 6.11225 0 12.9717C0 19.8878 5.61225 25.5 12.4717 25.5C19.3878 25.5 24.9433 19.8878 24.9433 12.9717C25 6.11225 19.3878 0.5 12.4717 0.5ZM20.1247 6.96258L11.9615 20.398C11.678 20.8515 11.2245 21.1916 10.6576 21.1916C10.6009 21.1916 10.5442 21.1916 10.4875 21.1916C9.97732 21.1916 9.52381 20.9649 9.18367 20.6247L5.04535 15.8061C4.42177 15.1259 4.47846 14.0488 5.21542 13.4252C5.89569 12.8016 7.02948 12.8583 7.59637 13.5952L10.2608 16.6565L17.1769 5.20522C17.6871 4.41157 18.7075 4.12812 19.5011 4.63832C20.3515 5.09184 20.5782 6.16893 20.1247 6.96258Z"
+                fill="#70E61C"
+              />
+            </svg>
+
+            <svg
+              *ngIf="email.invalid && email.dirty"
+              width="26"
+              height="26"
+              viewBox="0 0 26 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.4753 0.5C6.57199 0.5 0.950684 6.1213 0.950684 13.0247C0.950684 19.928 6.57199 25.5493 13.4753 25.5493C20.3787 25.5493 26 19.928 26 13.0247C26 6.1213 20.3787 0.5 13.4753 0.5ZM14.856 21.999C14.4615 22.3442 14.0177 22.5414 13.4753 22.5414C12.9329 22.5414 12.4891 22.3442 12.0947 21.999C11.7002 21.6538 11.503 21.1607 11.503 20.5197C11.503 19.9773 11.7002 19.5335 12.0947 19.1391C12.4891 18.7446 12.9329 18.5473 13.5246 18.5473C14.0671 18.5473 14.5602 18.7446 14.9546 19.1391C15.3491 19.5335 15.5463 19.9773 15.5463 20.5197C15.4477 21.1607 15.2505 21.6538 14.856 21.999ZM15.3491 8.34024L14.7574 14.8491C14.7081 15.6381 14.5602 16.2298 14.3629 16.6243C14.1657 17.0187 13.8205 17.2653 13.3767 17.2653C12.8836 17.2653 12.5878 17.068 12.3905 16.6736C12.1933 16.2791 12.0947 15.6381 11.996 14.8491L11.5523 8.53747C11.4536 7.30473 11.4536 6.41716 11.4536 5.87475C11.4536 5.13511 11.6509 4.5927 12.0454 4.14892C12.4398 3.75444 12.9329 3.5572 13.574 3.5572C14.3136 3.5572 14.856 3.80375 15.1026 4.34615C15.3491 4.88856 15.497 5.6282 15.497 6.6144C15.4477 7.1568 15.4477 7.74852 15.3491 8.34024Z"
+                fill="#E61C40"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="input-container">
+          <textarea
+            name="message"
+            [(ngModel)]="contactData.message"
+            [placeholder]="
+              sharedService.language === 'en'
+                ? 'Your message'
+                : 'Ihre Nachricht'
+            "
+            required
+            #message="ngModel"
+          ></textarea>
+
+          <p class="error-text" *ngIf="message.invalid && message.dirty">
+            <span *ngIf="sharedService.language === 'en'"
+              >Your message is empty</span
+            >
+            <span *ngIf="sharedService.language === 'de'"
+              >Ihre Nachricht ist leer</span
+            >
+          </p>
+
+          <div class="status-icon">
+            <svg
+              *ngIf="message.valid && message.dirty"
+              width="25"
+              height="26"
+              viewBox="0 0 25 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.4717 0.5C5.61225 0.5 0 6.11225 0 12.9717C0 19.8878 5.61225 25.5 12.4717 25.5C19.3878 25.5 24.9433 19.8878 24.9433 12.9717C25 6.11225 19.3878 0.5 12.4717 0.5ZM20.1247 6.96258L11.9615 20.398C11.678 20.8515 11.2245 21.1916 10.6576 21.1916C10.6009 21.1916 10.5442 21.1916 10.4875 21.1916C9.97732 21.1916 9.52381 20.9649 9.18367 20.6247L5.04535 15.8061C4.42177 15.1259 4.47846 14.0488 5.21542 13.4252C5.89569 12.8016 7.02948 12.8583 7.59637 13.5952L10.2608 16.6565L17.1769 5.20522C17.6871 4.41157 18.7075 4.12812 19.5011 4.63832C20.3515 5.09184 20.5782 6.16893 20.1247 6.96258Z"
+                fill="#70E61C"
+              />
+            </svg>
+            <svg
+              *ngIf="message.invalid && message.dirty"
+              width="26"
+              height="26"
+              viewBox="0 0 26 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.4753 0.5C6.57199 0.5 0.950684 6.1213 0.950684 13.0247C0.950684 19.928 6.57199 25.5493 13.4753 25.5493C20.3787 25.5493 26 19.928 26 13.0247C26 6.1213 20.3787 0.5 13.4753 0.5ZM14.856 21.999C14.4615 22.3442 14.0177 22.5414 13.4753 22.5414C12.9329 22.5414 12.4891 22.3442 12.0947 21.999C11.7002 21.6538 11.503 21.1607 11.503 20.5197C11.503 19.9773 11.7002 19.5335 12.0947 19.1391C12.4891 18.7446 12.9329 18.5473 13.5246 18.5473C14.0671 18.5473 14.5602 18.7446 14.9546 19.1391C15.3491 19.5335 15.5463 19.9773 15.5463 20.5197C15.4477 21.1607 15.2505 21.6538 14.856 21.999ZM15.3491 8.34024L14.7574 14.8491C14.7081 15.6381 14.5602 16.2298 14.3629 16.6243C14.1657 17.0187 13.8205 17.2653 13.3767 17.2653C12.8836 17.2653 12.5878 17.068 12.3905 16.6736C12.1933 16.2791 12.0947 15.6381 11.996 14.8491L11.5523 8.53747C11.4536 7.30473 11.4536 6.41716 11.4536 5.87475C11.4536 5.13511 11.6509 4.5927 12.0454 4.14892C12.4398 3.75444 12.9329 3.5572 13.574 3.5572C14.3136 3.5572 14.856 3.80375 15.1026 4.34615C15.3491 4.88856 15.497 5.6282 15.497 6.6144C15.4477 7.1568 15.4477 7.74852 15.3491 8.34024Z"
+                fill="#E61C40"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="text-container">
+          <label>
+            <div class="check-box-container" (click)="toggleAgree()">
+              <div class="check-box">
+                <!-- SVG wird nur angezeigt, wenn contactData.agree true ist -->
+                <svg
+                  *ngIf="agree"
+                  width="100"
+                  height="100"
+                  viewBox="0 0 100 100"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M30 50 L45 65 L70 35"
+                    stroke="#70e61c"
+                    stroke-width="10"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="check-box-bg"></div>
+            </div>
+          </label>
+          <p>
+            <span *ngIf="sharedService.language === 'en'">
+              I've read the <a href="#" class="purple">privacy policy</a> and
+              agree to the processing of my data as outlined.
+            </span>
+            <span *ngIf="sharedService.language === 'de'">
+              Ich habe die
+              <a href="#" class="purple">Datenschutzrichtlinie</a> gelesen und
+              stimme der Verarbeitung meiner Daten wie beschrieben zu.
+            </span>
+          </p>
+        </div>
+
+        <div class="error-container">
+          <p class="error-text" *ngIf="!agree && submitAttempted">
+            <span *ngIf="sharedService.language === 'en'"
+              >Please agree to the privacy policy</span
+            >
+            <span *ngIf="sharedService.language === 'de'"
+              >Bitte stimmen Sie der Datenschutzrichtlinie zu</span
+            >
+          </p>
+        </div>
+
+        <input
+          id="button"
+          type="submit"
+          [value]="
+            sharedService.language === 'en'
+              ? 'Send message :)'
+              : 'Nachricht senden :)'
+          "
+          [disabled]="!contactForm.valid || !agree"
+        />
+      </form>
     </div>
 
-    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-      <div class="input-container">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your name"
-          [(ngModel)]="contactData.name"
-          required
-          #name="ngModel"
-        />
-
-        <p class="error-text" *ngIf="name.invalid && name.dirty">
-          Your name is required
-        </p>
-
-        <div class="status-icon">
-          <svg
-            *ngIf="name.valid && name.dirty"
-            width="25"
-            height="26"
-            viewBox="0 0 25 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.4717 0.5C5.61225 0.5 0 6.11225 0 12.9717C0 19.8878 5.61225 25.5 12.4717 25.5C19.3878 25.5 24.9433 19.8878 24.9433 12.9717C25 6.11225 19.3878 0.5 12.4717 0.5ZM20.1247 6.96258L11.9615 20.398C11.678 20.8515 11.2245 21.1916 10.6576 21.1916C10.6009 21.1916 10.5442 21.1916 10.4875 21.1916C9.97732 21.1916 9.52381 20.9649 9.18367 20.6247L5.04535 15.8061C4.42177 15.1259 4.47846 14.0488 5.21542 13.4252C5.89569 12.8016 7.02948 12.8583 7.59637 13.5952L10.2608 16.6565L17.1769 5.20522C17.6871 4.41157 18.7075 4.12812 19.5011 4.63832C20.3515 5.09184 20.5782 6.16893 20.1247 6.96258Z"
-              fill="#70E61C"
-            />
-          </svg>
-
-          <svg
-            *ngIf="name.invalid && name.dirty"
-            width="26"
-            height="26"
-            viewBox="0 0 26 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.4753 0.5C6.57199 0.5 0.950684 6.1213 0.950684 13.0247C0.950684 19.928 6.57199 25.5493 13.4753 25.5493C20.3787 25.5493 26 19.928 26 13.0247C26 6.1213 20.3787 0.5 13.4753 0.5ZM14.856 21.999C14.4615 22.3442 14.0177 22.5414 13.4753 22.5414C12.9329 22.5414 12.4891 22.3442 12.0947 21.999C11.7002 21.6538 11.503 21.1607 11.503 20.5197C11.503 19.9773 11.7002 19.5335 12.0947 19.1391C12.4891 18.7446 12.9329 18.5473 13.5246 18.5473C14.0671 18.5473 14.5602 18.7446 14.9546 19.1391C15.3491 19.5335 15.5463 19.9773 15.5463 20.5197C15.4477 21.1607 15.2505 21.6538 14.856 21.999ZM15.3491 8.34024L14.7574 14.8491C14.7081 15.6381 14.5602 16.2298 14.3629 16.6243C14.1657 17.0187 13.8205 17.2653 13.3767 17.2653C12.8836 17.2653 12.5878 17.068 12.3905 16.6736C12.1933 16.2791 12.0947 15.6381 11.996 14.8491L11.5523 8.53747C11.4536 7.30473 11.4536 6.41716 11.4536 5.87475C11.4536 5.13511 11.6509 4.5927 12.0454 4.14892C12.4398 3.75444 12.9329 3.5572 13.574 3.5572C14.3136 3.5572 14.856 3.80375 15.1026 4.34615C15.3491 4.88856 15.497 5.6282 15.497 6.6144C15.4477 7.1568 15.4477 7.74852 15.3491 8.34024Z"
-              fill="#E61C40"
-            />
-          </svg>
-        </div>
-      </div>
-
-      <div class="input-container">
-        <input
-          type="email"
-          name="email"
-          placeholder="Your email"
-          pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-          [(ngModel)]="contactData.email"
-          required
-          #email="ngModel"
-        />
-
-        <p class="error-text" *ngIf="email.invalid && email.dirty">
-          Your email is required
-        </p>
-
-        <div class="status-icon">
-          <svg
-            *ngIf="email.valid && email.dirty"
-            width="25"
-            height="26"
-            viewBox="0 0 25 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.4717 0.5C5.61225 0.5 0 6.11225 0 12.9717C0 19.8878 5.61225 25.5 12.4717 25.5C19.3878 25.5 24.9433 19.8878 24.9433 12.9717C25 6.11225 19.3878 0.5 12.4717 0.5ZM20.1247 6.96258L11.9615 20.398C11.678 20.8515 11.2245 21.1916 10.6576 21.1916C10.6009 21.1916 10.5442 21.1916 10.4875 21.1916C9.97732 21.1916 9.52381 20.9649 9.18367 20.6247L5.04535 15.8061C4.42177 15.1259 4.47846 14.0488 5.21542 13.4252C5.89569 12.8016 7.02948 12.8583 7.59637 13.5952L10.2608 16.6565L17.1769 5.20522C17.6871 4.41157 18.7075 4.12812 19.5011 4.63832C20.3515 5.09184 20.5782 6.16893 20.1247 6.96258Z"
-              fill="#70E61C"
-            />
-          </svg>
-
-          <svg
-            *ngIf="email.invalid && email.dirty"
-            width="26"
-            height="26"
-            viewBox="0 0 26 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.4753 0.5C6.57199 0.5 0.950684 6.1213 0.950684 13.0247C0.950684 19.928 6.57199 25.5493 13.4753 25.5493C20.3787 25.5493 26 19.928 26 13.0247C26 6.1213 20.3787 0.5 13.4753 0.5ZM14.856 21.999C14.4615 22.3442 14.0177 22.5414 13.4753 22.5414C12.9329 22.5414 12.4891 22.3442 12.0947 21.999C11.7002 21.6538 11.503 21.1607 11.503 20.5197C11.503 19.9773 11.7002 19.5335 12.0947 19.1391C12.4891 18.7446 12.9329 18.5473 13.5246 18.5473C14.0671 18.5473 14.5602 18.7446 14.9546 19.1391C15.3491 19.5335 15.5463 19.9773 15.5463 20.5197C15.4477 21.1607 15.2505 21.6538 14.856 21.999ZM15.3491 8.34024L14.7574 14.8491C14.7081 15.6381 14.5602 16.2298 14.3629 16.6243C14.1657 17.0187 13.8205 17.2653 13.3767 17.2653C12.8836 17.2653 12.5878 17.068 12.3905 16.6736C12.1933 16.2791 12.0947 15.6381 11.996 14.8491L11.5523 8.53747C11.4536 7.30473 11.4536 6.41716 11.4536 5.87475C11.4536 5.13511 11.6509 4.5927 12.0454 4.14892C12.4398 3.75444 12.9329 3.5572 13.574 3.5572C14.3136 3.5572 14.856 3.80375 15.1026 4.34615C15.3491 4.88856 15.497 5.6282 15.497 6.6144C15.4477 7.1568 15.4477 7.74852 15.3491 8.34024Z"
-              fill="#E61C40"
-            />
-          </svg>
-        </div>
-      </div>
-
-      <div class="input-container">
-        <textarea
-          name="message"
-          [(ngModel)]="contactData.message"
-          placeholder="Your message"
-          required
-          #message="ngModel"
-        ></textarea>
-
-        <p class="error-text" *ngIf="message.invalid && message.dirty">
-          Your message is empty
-        </p>
-
-        <div class="status-icon">
-          <svg
-            *ngIf="message.valid && message.dirty"
-            width="25"
-            height="26"
-            viewBox="0 0 25 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.4717 0.5C5.61225 0.5 0 6.11225 0 12.9717C0 19.8878 5.61225 25.5 12.4717 25.5C19.3878 25.5 24.9433 19.8878 24.9433 12.9717C25 6.11225 19.3878 0.5 12.4717 0.5ZM20.1247 6.96258L11.9615 20.398C11.678 20.8515 11.2245 21.1916 10.6576 21.1916C10.6009 21.1916 10.5442 21.1916 10.4875 21.1916C9.97732 21.1916 9.52381 20.9649 9.18367 20.6247L5.04535 15.8061C4.42177 15.1259 4.47846 14.0488 5.21542 13.4252C5.89569 12.8016 7.02948 12.8583 7.59637 13.5952L10.2608 16.6565L17.1769 5.20522C17.6871 4.41157 18.7075 4.12812 19.5011 4.63832C20.3515 5.09184 20.5782 6.16893 20.1247 6.96258Z"
-              fill="#70E61C"
-            />
-          </svg>
-          <svg
-            *ngIf="message.invalid && message.dirty"
-            width="26"
-            height="26"
-            viewBox="0 0 26 26"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.4753 0.5C6.57199 0.5 0.950684 6.1213 0.950684 13.0247C0.950684 19.928 6.57199 25.5493 13.4753 25.5493C20.3787 25.5493 26 19.928 26 13.0247C26 6.1213 20.3787 0.5 13.4753 0.5ZM14.856 21.999C14.4615 22.3442 14.0177 22.5414 13.4753 22.5414C12.9329 22.5414 12.4891 22.3442 12.0947 21.999C11.7002 21.6538 11.503 21.1607 11.503 20.5197C11.503 19.9773 11.7002 19.5335 12.0947 19.1391C12.4891 18.7446 12.9329 18.5473 13.5246 18.5473C14.0671 18.5473 14.5602 18.7446 14.9546 19.1391C15.3491 19.5335 15.5463 19.9773 15.5463 20.5197C15.4477 21.1607 15.2505 21.6538 14.856 21.999ZM15.3491 8.34024L14.7574 14.8491C14.7081 15.6381 14.5602 16.2298 14.3629 16.6243C14.1657 17.0187 13.8205 17.2653 13.3767 17.2653C12.8836 17.2653 12.5878 17.068 12.3905 16.6736C12.1933 16.2791 12.0947 15.6381 11.996 14.8491L11.5523 8.53747C11.4536 7.30473 11.4536 6.41716 11.4536 5.87475C11.4536 5.13511 11.6509 4.5927 12.0454 4.14892C12.4398 3.75444 12.9329 3.5572 13.574 3.5572C14.3136 3.5572 14.856 3.80375 15.1026 4.34615C15.3491 4.88856 15.497 5.6282 15.497 6.6144C15.4477 7.1568 15.4477 7.74852 15.3491 8.34024Z"
-              fill="#E61C40"
-            />
-          </svg>
-        </div>
-      </div>
-
-      <div class="text-container">
-        <label>
-          <div class="check-box-container" (click)="toggleAgree()">
-            <div class="check-box">
-              <!-- SVG wird nur angezeigt, wenn contactData.agree true ist -->
-              <svg
-                *ngIf="agree"
-                width="100"
-                height="100"
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M30 50 L45 65 L70 35"
-                  stroke="#70e61c"
-                  stroke-width="10"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div class="check-box-bg"></div>
-          </div>
-        </label>
-        <p>
-          I've read the <a href="#" class="purple">privacy policy</a> and agree
-          to the processing of my data as outlined.
-        </p>
-      </div>
-
-      <div class="error-container">
-        <p class="error-text" *ngIf="!agree && submitAttempted">
-          Please agree to the privacy policy
-        </p>
-      </div>
-
-      <input
-        id="button"
-        type="submit"
-        value="Send message :)"
-        [disabled]="!contactForm.valid || !agree"
-      />
-    </form>
-  </div>
-
-  <div
-    (click)="sharedService.scrollToSection('above-the-fold')"
-    class="green-circle"
-  >
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      (click)="sharedService.scrollToSection('above-the-fold')"
+      class="green-circle"
     >
-      <path
-        d="M7.00002 3.828L2.34302 8.485C1.95255 8.87546 1.31948 8.87546 0.929016 8.485C0.53855 8.09453 0.538551 7.46146 0.929016 7.071L7.29291 0.707106C7.68343 0.316581 8.3166 0.316582 8.70712 0.707106L15.071 7.071C15.4615 7.46147 15.4615 8.09453 15.071 8.485C14.6806 8.87547 14.0475 8.87547 13.657 8.485L9.00002 3.828L9.00002 15C9.00002 15.5523 8.5523 16 8.00002 16C7.44773 16 7.00002 15.5523 7.00002 15L7.00002 3.828Z"
-        fill="white"
-      />
-    </svg>
-  </div>
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.00002 3.828L2.34302 8.485C1.95255 8.87546 1.31948 8.87546 0.929016 8.485C0.53855 8.09453 0.538551 7.46146 0.929016 7.071L7.29291 0.707106C7.68343 0.316581 8.3166 0.316582 8.70712 0.707106L15.071 7.071C15.4615 7.46147 15.4615 8.09453 15.071 8.485C14.6806 8.87547 14.0475 8.87547 13.657 8.485L9.00002 3.828L9.00002 15C9.00002 15.5523 8.5523 16 8.00002 16C7.44773 16 7.00002 15.5523 7.00002 15L7.00002 3.828Z"
+          fill="white"
+        />
+      </svg>
+    </div>
 
-  <img
-    class="purple-shadow"
-    src="../../../assets/33. Purple shadow Footer.png"
-    alt=""
-  />
-</section>
+    <img
+      class="purple-shadow"
+      src="../../../assets/33. Purple shadow Footer.png"
+      alt=""
+    />
+  </section>
+</div>

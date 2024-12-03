@@ -1,11 +1,11 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgIf],
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
 })
@@ -25,6 +25,10 @@ export class NavBarComponent {
     this.isMenuOpen = false;
     document.getElementById('body')?.classList.remove('overflow-hidden');
     document.body.classList.remove('overflow-hidden');
+  }
+
+  changeLanguage(language: string) {
+    this.sharedService.language = language;
   }
 
   navigateToSection(sectionId: string) {

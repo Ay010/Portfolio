@@ -1,12 +1,18 @@
 @import "../../../styles.scss";
 
-footer {
-  padding: 100px 100px;
+.wrap-container {
   border-top: solid 4px $primary-color;
+}
+
+footer {
+  background-color: $background-color;
+  padding: 100px 100px;
+  // border-top: solid 4px $primary-color;
+  width: 100%;
 
   @include dFlex(space-between);
 
-  > p {
+  > div > p {
     font-size: 23px;
   }
 

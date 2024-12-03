@@ -1,9 +1,12 @@
 @import "../../../styles.scss";
 
+.wrap-container {
+  overflow: hidden;
+}
+
 section {
   padding: 50px 100px 170px 100px;
   flex-direction: column;
-  overflow: hidden;
 
   @include dFlex();
 

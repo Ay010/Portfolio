@@ -1,30 +1,63 @@
-<div [ngClass]="{ reverse: reverse }" class="project-container">
-  <img src="../../../../assets/{{ projectImage }}" alt="" />
-
+<div
+  [ngClass]="{ reverse: reverse }"
+  class="project-container"
+  [id]="'project-container-' + i"
+>
+  <img
+    [id]="'project-image-' + i"
+    src="../../../../assets/{{ projectImage }}"
+    alt=""
+    [@rotateIn]="isImageVisible ? true : false"
+    class="project-image"
+  />
   <div>
-    <h2 class="purple">{{ projectName }}</h2>
+    <h2 class="purple" [@fadeIn]="isTitleVisible ? true : false">
+      <span *ngIf="sharedService.language === 'en'">{{ projectName.en }}</span>
+      <span *ngIf="sharedService.language === 'de'">{{ projectName.de }}</span>
+    </h2>
 
     <div class="used-technologies-container">
-      <p *ngFor="let tech of usedTechnologies; let i = index">
+      <p
+        *ngFor="let tech of usedTechnologies; let i = index"
+        [@fadeIn]="isTechnologiesVisible ? true : false"
+      >
         {{ tech }}<span *ngIf="i < usedTechnologies.length - 1"> | </span>
       </p>
     </div>
 
-    <p>{{ projectDescription }}</p>
+    <p [@fadeIn]="isDescriptionVisible ? true : false">
+      <span *ngIf="sharedService.language === 'en'">{{
+        projectDescription.en
+      }}</span>
+      <span *ngIf="sharedService.language === 'de'">{{
+        projectDescription.de
+      }}</span>
+    </p>
 
     <div class="btn-container">
-      <a target="_blank" href=" {{ websiteLink }} "
-        ><app-button
+      <a
+        target="_blank"
+        href="{{ websiteLink }}"
+        [@scaleIn]="isLiveTestButtonVisible ? true : false"
+        [id]="'live-test-button-' + i"
+      >
+        <app-button
           [buttonType]="'purple-bg'"
           [text]="'Live test'"
-        ></app-button
-      ></a>
-      <a target="_blank" href="{{ githubLink }}"
-        ><app-button
+        ></app-button>
+      </a>
+
+      <a
+        target="_blank"
+        href="{{ githubLink }}"
+        [@scaleIn]="isGithubButtonVisible ? true : false"
+        [id]="'github-button-' + i"
+      >
+        <app-button
           [buttonType]="'green-border'"
           [text]="'Github'"
-        ></app-button
-      ></a>
+        ></app-button>
+      </a>
     </div>
   </div>
 </div>

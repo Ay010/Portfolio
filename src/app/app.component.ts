@@ -9,7 +9,7 @@ import { FooterComponent } from './shared/footer/footer.component';
   standalone: true,
   imports: [CommonModule, RouterOutlet, NavBarComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'ayyubs-portfolio';

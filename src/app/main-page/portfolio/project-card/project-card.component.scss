@@ -2,6 +2,8 @@
 
 .project-container {
   width: 100%;
+  max-width: 100%;
+  min-width: 100%;
 
   @include dFlex($gap: 35px);
 

@@ -8,40 +8,86 @@ section {
   .header {
     padding-top: 110px;
     height: 91vh;
+
+    @include dFlex();
+  }
+}
+
+app-introduction-card {
+  width: 80%;
+  height: 100%;
+
+  @include dFlex(start, start);
+
+  @media (max-width: 1200px) {
+    @include dFlex(start, start);
+
+    padding-top: 130px;
+    width: 100%;
   }
 }
 
 .img-container {
-  @include dFlex(center);
-  height: 80vh;
+  height: 100%;
   width: 50%;
+
+  @include dFlex(center);
 
   .person {
     transition: 0.2s;
     object-fit: cover;
+    height: 90%;
     max-height: 80vh;
-    max-width: 60%;
-    position: absolute;
+
+    position: relative;
+    z-index: 0;
   }
 
   .img-bg {
-    max-width: 100%;
-    transition: 0.2s;
+    height: 80%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+  }
+
+  @media (max-width: 1200px) {
+    width: 40%;
+
+    .person {
+      max-height: 70vh;
+      height: 90%;
+
+      transform: translateX(70px);
+    }
   }
 }
 
+.icon-line-container {
+  width: 100%;
+  margin-left: 100px;
+  position: relative;
+
+  @include dFlex();
+}
+
 .icon-container {
-  @include dFlex(space-between);
-  width: 550px;
+  max-width: 2000px;
+  width: 100%;
   position: relative;
   z-index: 10;
 
-  .line {
-    transform: translateX(-10px);
-    width: 110px;
+  @include dFlex(start, $gap: 32px);
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: calc(100% + 20px);
+    transform: translateY(-50%);
     height: 4px;
-    border-radius: 10px;
+    width: 100vw;
     background-color: $primary-color-two;
+    border-radius: 10px;
+    z-index: 10;
   }
 
   a {
@@ -55,8 +101,10 @@ section {
   position: absolute;
   right: 0;
   left: 0;
-  bottom: -80px;
-  height: 400px;
+  // bottom: -80px;
+  top: 70%;
+  // height: 400px;
+  height: 40%;
   width: 100%;
   z-index: 1;
 }
@@ -85,61 +133,6 @@ section {
   z-index: 10;
 }
 
-// Media Queries
-@media (min-height: 1200px) and (min-width: 800px) and (max-width: 1450px) {
-  .bg {
-    bottom: 130px;
-  }
-}
-
-@media (max-width: 850px) {
-  .img-container {
-    height: 40vh;
-    width: 100%;
-
-    .person {
-      max-width: 100%;
-      max-height: 43vh;
-    }
-
-    .img-bg {
-      max-width: 65%;
-      max-height: 43vh;
-    }
-  }
-
-  .bg {
-    top: 35vh;
-    height: 300px;
-  }
-
-  .scroll-text {
-    display: none;
-  }
-}
-
-@media (max-width: 750px) {
-  .img-container {
-    .person,
-    .img-bg {
-      max-width: 100%;
-      max-height: 43vh;
-    }
-  }
-
-  .email {
-    display: none;
-  }
-
-  .icon-container {
-    width: 280px;
-
-    .line {
-      margin-right: -25px;
-    }
-  }
-}
-
 .purple-shadow {
   position: absolute;
   right: 0;
@@ -155,5 +148,80 @@ section {
 
   @media (max-width: 600px) {
     height: 500px;
+  }
+}
+
+// Media Queries
+@media (min-height: 1200px) and (min-width: 800px) and (max-width: 1500px) {
+  // .bg {
+  //   bottom: 130px;
+  // }
+}
+
+@media (max-width: 1300px) {
+  app-introduction-card {
+    width: 80%;
+  }
+}
+
+@media (max-width: 850px) {
+  app-introduction-card {
+    padding-top: 0;
+    width: 100%;
+
+    @include dFlex($ai: center);
+  }
+
+  section {
+    .header {
+      flex-direction: column;
+    }
+  }
+
+  .img-container {
+    height: 45vh;
+    width: 100%;
+    position: relative;
+
+    .person {
+      max-height: 50vh;
+      height: 100%;
+      transform: unset;
+    }
+
+    .img-bg {
+      // max-width: 65%;
+      // max-height: 43vh;
+    }
+  }
+
+  .bg {
+    top: 40vh;
+    // height: 300px;
+  }
+
+  .scroll-text {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  //   .img-container {
+  //     .person,
+  //     .img-bg {
+  //       max-width: 100%;
+  //       max-height: 43vh;
+  //     }
+  //   }
+
+  .email {
+    display: none;
+  }
+
+  app-introduction-card {
+    padding-top: 0;
+    width: 100%;
+
+    @include dFlex($ai: start);
   }
 }

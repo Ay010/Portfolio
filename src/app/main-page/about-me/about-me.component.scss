@@ -83,6 +83,15 @@ section {
     background-color: $primary-color;
     width: 20%;
     height: 4px;
+    position: relative;
+
+    &::after {
+      content: "";
+      background-color: $primary-color;
+      width: 100vw;
+      height: 4px;
+      position: absolute;
+    }
   }
 
   @media (max-width: 1350px) {
@@ -109,4 +118,19 @@ section {
   @media (max-width: 850px) {
     display: none;
   }
+}
+
+.img-container {
+  // transition: 0.7s ease-out;
+
+  // &.slid-in-right {
+  //   transform: translateX(50%); // Nach rechts verschieben
+  //   opacity: 0;
+  // }
+
+  // &:not(.slid-in-right) {
+  //   transform: translateX(0); // Ursprüngliche Position
+  //   opacity: 1;
+  //   transition-delay: 0.3s;
+  // }
 }

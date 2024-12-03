@@ -16,20 +16,47 @@ nav {
 
   .logo {
     width: 180px;
+
+    @media (max-width: 1000px) {
+      width: 150px;
+    }
+
+    @media (max-width: 850px) {
+      width: 180px;
+    }
   }
 
   > ul {
     padding: 0;
-    width: 350px;
+    // width: 480px;
 
-    @include dFlex(space-between);
+    @include dFlex(space-between, $gap: 25px);
 
     a {
+      transition: 0s;
       font-size: 23px;
       position: relative;
+      @include dFlex();
 
       &:hover {
         color: #70e61c;
+      }
+
+      &::after {
+        content: "";
+        transition: 0.3s ease-in-out;
+        background-color: #9747ff;
+        border-radius: 10px;
+        height: 3px;
+        width: 0%;
+        position: absolute;
+        // right: 0;
+        // left: 0;
+        bottom: -5px;
+      }
+
+      @media (max-width: 1000px) {
+        font-size: 20px;
       }
     }
 
@@ -38,14 +65,7 @@ nav {
 
       &::after {
         content: "";
-        background-color: #9747ff;
-        border-radius: 10px;
-        height: 3px;
         width: 100%;
-        position: absolute;
-        right: 0;
-        left: 0;
-        bottom: -5px;
       }
     }
   }
@@ -55,6 +75,39 @@ nav {
 
     > ul {
       display: none;
+    }
+  }
+}
+
+.language-selector {
+  font-size: 23px;
+  user-select: none;
+
+  @include dFlex(space-between);
+
+  > .language-option {
+    cursor: pointer;
+    padding: 10px;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  > .activeLanguage {
+    color: $primary-color-two !important;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 850px) {
+    font-size: 25px;
+
+    .activeLanguage {
+      text-shadow: #000000 1px 1px 5px;
+      font-weight: 700;
     }
   }
 }

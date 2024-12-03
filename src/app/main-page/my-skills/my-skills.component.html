@@ -1,52 +1,103 @@
-<section id="skills">
-  <img class="green-shadow" src="../../../assets/Green shadow 2.png" alt="" />
+<div class="wrap-container">
+  <section id="skills" class="wrap">
+    <img
+      [@fadeInShadow]="isGreenShadowVisible ? true : false"
+      class="green-shadow skill-section-green-shadow"
+      src="../../../assets/Green shadow 2.png"
+      alt=""
+    />
 
-  <div class="mobile-headline-container">
-    <h1>My skills</h1>
-    <p>
-      I have gained experience in building projects with different frontend
-      technologies and concepts.
-    </p>
-  </div>
+    <div class="mobile-headline-container">
+      <h1 *ngIf="sharedService.language === 'en'">My skills</h1>
+      <h1 *ngIf="sharedService.language === 'de'">Meine Fähigkeiten</h1>
 
-  <div class="icon-container">
-    <app-skill-icon
-      *ngFor="let iconJSON of allIcons"
-      [icon]="iconJSON.icon"
-      [iconName]="iconJSON.iconName"
-    ></app-skill-icon>
-
-    <app-skill-icon
-      class="last-icon"
-      [icon]="lastIcon"
-      [iconName]="lastIconName"
-      [lastIcon]="true"
-    >
-    </app-skill-icon>
-  </div>
-
-  <div class="text-container">
-    <div class="headline-container">
-      <h1>My skills</h1>
-      <p>
+      <p *ngIf="sharedService.language === 'en'">
         I have gained experience in building projects with different frontend
         technologies and concepts.
       </p>
+
+      <p *ngIf="sharedService.language === 'de'">
+        Ich habe Erfahrung in der Erstellung von Projekten mit verschiedenen
+        Frontend-Technologien und -Konzepten gesammelt.
+      </p>
     </div>
 
-    <div>
-      <div>
-        <h2>Looking for <span class="purple">another skill?</span></h2>
-        <p>
-          Feel free to contact me. I look forward to expanding on my previous
-          knowledge.
+    <div class="icon-container">
+      <app-skill-icon
+        class="skill-icon-container"
+        [@spinIn]="iconStates[i] ? true : false"
+        *ngFor="let iconJSON of allIcons; index as i"
+        [icon]="iconJSON.icon"
+        [iconName]="iconJSON.iconName"
+      ></app-skill-icon>
+
+      <app-skill-icon
+        class="last-icon"
+        [@spinIn]="isLastIconVisible ? true : false"
+        [icon]="lastIcon"
+        [iconName]="
+          sharedService.language === 'en'
+            ? 'Continually learning'
+            : 'Ständig lernen'
+        "
+        [lastIcon]="true"
+      >
+      </app-skill-icon>
+    </div>
+
+    <div class="text-container">
+      <div class="headline-container">
+        <h1 id="my-skills-headline" [@fadeIn]="isTitleVisible ? true : false">
+          <span *ngIf="sharedService.language === 'en'">My skills</span>
+          <span *ngIf="sharedService.language === 'de'">Fähigkeiten</span>
+        </h1>
+
+        <p *ngIf="sharedService.language === 'en'">
+          I have gained experience in building projects with different frontend
+          technologies and concepts.
+        </p>
+
+        <p *ngIf="sharedService.language === 'de'">
+          Ich habe Erfahrung in der Erstellung von Projekten mit verschiedenen
+          Frontend-Technologien und -Konzepten gesammelt.
         </p>
       </div>
 
-      <app-button
-        (click)="sharedService.scrollToSection('contact')"
-        [text]="'Get in touch'"
-      ></app-button>
+      <div>
+        <div
+          class="skill-section-text-container"
+          [@fadeInLeft]="isTextContainerVisible ? true : false"
+        >
+          <h2 *ngIf="sharedService.language === 'en'">
+            Looking for <span class="purple">another skill?</span>
+          </h2>
+          <h2 *ngIf="sharedService.language === 'de'">
+            Auf der Suche nach
+            <span class="purple">einer weiteren Fähigkeit?</span>
+          </h2>
+
+          <p *ngIf="sharedService.language === 'en'">
+            Feel free to contact me. I look forward to expanding on my previous
+            knowledge.
+          </p>
+
+          <p *ngIf="sharedService.language === 'de'">
+            Zögern Sie nicht, mich zu kontaktieren. Ich freue mich darauf, mein
+            vorheriges Wissen weiter auszubauen.
+          </p>
+        </div>
+
+        <app-button
+          class="skill-button"
+          [@zoom]="isButtonVisible ? true : false"
+          (click)="sharedService.scrollToSection('contact')"
+          [text]="
+            sharedService.language === 'en'
+              ? 'Get in touch'
+              : 'Kontakt aufnehmen'
+          "
+        ></app-button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

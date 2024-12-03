@@ -56,13 +56,12 @@ section {
       &::after {
         content: "";
         height: 4px;
-        width: 80px;
+        width: 100vw;
         background-color: $primary-color-two;
         border-radius: 10px;
         position: absolute;
-        right: -110px;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translate(30px, -50%);
       }
     }
 

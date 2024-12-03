@@ -76,6 +76,7 @@ button {
     background-color: #ffffff;
     color: $primary-color-two;
     padding: 15px 30px;
+    border: 1px solid rgba(0, 0, 0, 0);
   }
 
   @media (max-width: 650px) {

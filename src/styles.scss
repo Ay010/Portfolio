@@ -39,6 +39,16 @@ footer {
   z-index: 1;
 }
 
+.wrap {
+  max-width: 2000px;
+}
+
+.wrap-container {
+  width: 100%;
+
+  @include dFlex();
+}
+
 h1,
 h2 {
   font-weight: 700;
@@ -78,6 +88,10 @@ img {
   user-select: none;
 }
 
+ul {
+  padding-left: 0;
+}
+
 .purple {
   color: $primary-color-two;
 }
@@ -94,6 +108,10 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-track {
   background: rgba(37, 53, 85, 0.5);
+}
+
+app-imprint {
+  @include dFlex();
 }
 
 /* poppins-100 - latin */

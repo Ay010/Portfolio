@@ -1,11 +1,12 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SharedService } from '../../../shared/shared.service';
 
 @Component({
   selector: 'app-skill-icon',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgIf],
   templateUrl: './skill-icon.component.html',
   styleUrls: ['./skill-icon.component.scss'],
 })
@@ -17,7 +18,10 @@ export class SkillIconComponent {
   private _icon: string = '';
   sanitizedIcon: SafeHtml = '';
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(
+    private sanitizer: DomSanitizer,
+    public sharedService: SharedService
+  ) {}
 
   @Input()
   set icon(value: string) {

@@ -40,6 +40,7 @@ section {
 }
 
 .all-projects {
+  width: 100%;
   padding: 50px 0;
   flex-direction: column;
   position: relative;
@@ -72,8 +73,12 @@ section {
   }
 }
 
-.app-testimonial-list {
+app-testimonial-list {
   width: 100%;
+}
+
+app-project-card {
+  min-width: 100%;
 }
 
 .green-shadow {

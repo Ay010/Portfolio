@@ -1,29 +1,53 @@
-<section id="portfolio">
-  <h1>Portfolio</h1>
-  <p>
-    Explore a selection of my work here - Interact with projects to see my
-    skills in action.
-  </p>
-  <div class="all-projects">
-    <app-project-card
-      *ngFor="let project of projects; let i = index"
-      [projectName]="project.projectName"
-      [projectDescription]="project.projectDescription"
-      [usedTechnologies]="project.usedTechnologies"
-      [projectImage]="project.projectImage"
-      [githubLink]="project.githubLink"
-      [websiteLink]="project.websiteLink"
-      [reverse]="i % 2 !== 0"
-    ></app-project-card>
-  </div>
+<div class="wrap-container">
+  <section id="portfolio" class="wrap">
+    <h1
+      class="portfolio-section-title"
+      [@fadeIn]="isTitleVisible ? true : false"
+    >
+      Portfolio
+    </h1>
+    <p
+      class="portfolio-description"
+      [@slideInFromBottom]="isDescriptionVisible ? true : false"
+    >
+      <span *ngIf="sharedService.language === 'en'">
+        Explore a selection of my work here - Interact with projects to see my
+        skills in action.
+      </span>
+      <span *ngIf="sharedService.language === 'de'">
+        Entdecken Sie eine Auswahl meiner Arbeiten hier – Interagieren Sie mit
+        Projekten, um meine Fähigkeiten in Aktion zu sehen.
+      </span>
+    </p>
 
-  <img
-    class="purple-shadow"
-    src="../../../assets/32 Purple shadow portfolio.png"
-    alt=""
-  />
+    <div class="all-projects">
+      <app-project-card
+        *ngFor="let project of projects; let i = index"
+        [projectName]="project.projectName"
+        [projectDescription]="project.projectDescription"
+        [usedTechnologies]="project.usedTechnologies"
+        [projectImage]="project.projectImage"
+        [githubLink]="project.githubLink"
+        [websiteLink]="project.websiteLink"
+        [reverse]="i % 2 !== 0"
+        [i]="i"
+      ></app-project-card>
+    </div>
 
-  <app-testimonial-list></app-testimonial-list>
+    <img
+      class="purple-shadow portfolio-section-purple-shadow"
+      src="../../../assets/32 Purple shadow portfolio.png"
+      alt=""
+      [@fadeInShadow]="isPurpleShadowVisible ? true : false"
+    />
 
-  <img class="green-shadow" src="../../../assets/Green shadow 2.png" alt="" />
-</section>
+    <app-testimonial-list></app-testimonial-list>
+
+    <img
+      class="green-shadow portfolio-section-green-shadow"
+      src="../../../assets/Green shadow 2.png"
+      alt=""
+      [@fadeInShadow]="isGreenShadowVisible ? true : false"
+    />
+  </section>
+</div>

@@ -7,18 +7,38 @@
     <a
       (click)="navigateToSection('about-me')"
       [ngClass]="{ active: isActive('about-me') }"
-      >About me</a
     >
+      <span *ngIf="sharedService.language === 'en'">About me</span>
+      <span *ngIf="sharedService.language === 'de'">Über mich</span>
+    </a>
     <a
       (click)="navigateToSection('skills')"
       [ngClass]="{ active: isActive('skills') }"
-      >My skills</a
     >
+      <span *ngIf="sharedService.language === 'en'">Skills</span>
+      <span *ngIf="sharedService.language === 'de'">Fähigkeiten</span>
+    </a>
     <a
       (click)="navigateToSection('portfolio')"
       [ngClass]="{ active: isActive('portfolio') }"
-      >Portfolio</a
-    >
+      >Portfolio
+    </a>
+
+    <div class="language-selector">
+      <span
+        (click)="changeLanguage('en')"
+        [ngClass]="{ activeLanguage: sharedService.language === 'en' }"
+        class="language-option"
+        >en</span
+      >
+      <span>|</span>
+      <span
+        (click)="changeLanguage('de')"
+        [ngClass]="{ activeLanguage: sharedService.language === 'de' }"
+        class="language-option"
+        >de</span
+      >
+    </div>
   </ul>
 
   <div
@@ -38,9 +58,34 @@
   [ngClass]="{ open: isMenuOpen }"
 >
   <ul>
-    <a (click)="navigateToSection('about-me')">About me</a>
-    <a (click)="navigateToSection('skills')">My skills</a>
+    <a (click)="navigateToSection('about-me')">
+      <span *ngIf="sharedService.language === 'en'">About me</span>
+      <span *ngIf="sharedService.language === 'de'">Über mich</span></a
+    >
+    <a (click)="navigateToSection('skills')">
+      <span *ngIf="sharedService.language === 'en'">My skills</span>
+      <span *ngIf="sharedService.language === 'de'">Fähigkeiten</span></a
+    >
     <a (click)="navigateToSection('portfolio')">Portfolio</a>
-    <a (click)="navigateToSection('contact')">Contact</a>
+    <a (click)="navigateToSection('contact')">
+      <span *ngIf="sharedService.language === 'en'">Contact</span>
+      <span *ngIf="sharedService.language === 'de'">Kontakt</span></a
+    >
+
+    <div class="language-selector" (click)="sharedService.stopEvent($event)">
+      <span
+        (click)="changeLanguage('en')"
+        [ngClass]="{ activeLanguage: sharedService.language === 'en' }"
+        class="language-option"
+        >en</span
+      >
+      <span>|</span>
+      <span
+        (click)="changeLanguage('de')"
+        [ngClass]="{ activeLanguage: sharedService.language === 'de' }"
+        class="language-option"
+        >de</span
+      >
+    </div>
   </ul>
 </div>

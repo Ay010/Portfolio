@@ -1,0 +1,172 @@
+<div class="wrap">
+  <section>
+    <h1>
+      <span *ngIf="sharedService.language === 'en'">Imprint</span>
+      <span *ngIf="sharedService.language === 'de'">Impressum</span>
+    </h1>
+
+    <p>
+      <span *ngIf="sharedService.language === 'en'">According to § 5 DDG</span>
+      <span *ngIf="sharedService.language === 'de'">Angaben gemäß § 5 DDG</span>
+    </p>
+
+    <p>
+      <span *ngIf="sharedService.language === 'en'"
+        >Ayyub Qarar Brieger Weg 1 53119 Bonn</span
+      >
+      <span *ngIf="sharedService.language === 'de'"
+        >Ayyub Qarar Brieger Weg 1 53119 Bonn</span
+      >
+    </p>
+
+    <h2>
+      <span *ngIf="sharedService.language === 'en'">Represented by:</span>
+      <span *ngIf="sharedService.language === 'de'">Vertreten durch:</span>
+    </h2>
+
+    <p>
+      <span *ngIf="sharedService.language === 'en'">Ayyub Qarar</span>
+      <span *ngIf="sharedService.language === 'de'">Ayyub Qarar</span>
+    </p>
+
+    <h2>
+      <span *ngIf="sharedService.language === 'en'">Contact:</span>
+      <span *ngIf="sharedService.language === 'de'">Kontakt:</span>
+    </h2>
+
+    <p>
+      <span *ngIf="sharedService.language === 'en'"
+        >Phone: +60-17 375 1527 Email:</span
+      >
+      <span *ngIf="sharedService.language === 'de'"
+        >Telefon: +60-17 375 1527 E-Mail:</span
+      >
+    </p>
+
+    <p>
+      <a href="mailto:aq-computer@outlook.com">aq-computer&#64;outlook.com</a>
+    </p>
+
+    <h2>
+      <span *ngIf="sharedService.language === 'en'">Disclaimer:</span>
+      <span *ngIf="sharedService.language === 'de'">Haftungsausschluss:</span>
+    </h2>
+
+    <h3>
+      <span *ngIf="sharedService.language === 'en'">Liability for Content</span>
+      <span *ngIf="sharedService.language === 'de'">Haftung für Inhalte</span>
+    </h3>
+
+    <p>
+      <span *ngIf="sharedService.language === 'en'">
+        The content of our pages was created with the utmost care. However, we
+        cannot guarantee the accuracy, completeness, or timeliness of the
+        content. As service providers, we are responsible for our own content on
+        these pages in accordance with general laws, according to § 7 paragraph
+        1 DDG. However, we are not obligated to monitor transmitted or stored
+        foreign information, or to investigate circumstances that indicate
+        illegal activity, according to §§ 8 to 10 DDG.
+      </span>
+      <span *ngIf="sharedService.language === 'de'">
+        Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die
+        Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir
+        jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7
+        Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen
+        Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als
+        Diensteanbieter jedoch nicht verpflichtet, übermittelte oder
+        gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
+        forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+      </span>
+    </p>
+
+    <h3>
+      <span *ngIf="sharedService.language === 'en'">Liability for Links</span>
+      <span *ngIf="sharedService.language === 'de'">Haftung für Links</span>
+    </h3>
+
+    <p>
+      <span *ngIf="sharedService.language === 'en'">
+        Our offer contains links to external websites of third parties, whose
+        content we have no influence on. Therefore, we cannot assume any
+        responsibility for these external contents. The provider or operator of
+        the linked pages is always responsible for their content. The linked
+        pages were checked for possible legal violations at the time of linking.
+        Illegal content was not recognizable at the time of linking.
+      </span>
+      <span *ngIf="sharedService.language === 'de'">
+        Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren
+        Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden
+        Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+        Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten
+        verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der
+        Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte
+        waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+      </span>
+    </p>
+
+    <h3>
+      <span *ngIf="sharedService.language === 'en'">Copyright</span>
+      <span *ngIf="sharedService.language === 'de'">Urheberrecht</span>
+    </h3>
+
+    <p>
+      <span *ngIf="sharedService.language === 'en'">
+        The contents and works created by the page operators on these pages are
+        subject to German copyright law. The reproduction, editing,
+        distribution, and any kind of utilization outside the limits of
+        copyright law require the written consent of the respective author or
+        creator. Downloads and copies of this page are only permitted for
+        private, non-commercial use. As far as the contents on this site were
+        not created by the operator, the copyrights of third parties are
+        respected.
+      </span>
+      <span *ngIf="sharedService.language === 'de'">
+        Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen
+        Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
+        Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+        Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des
+        jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite
+        sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+      </span>
+    </p>
+
+    <h3>
+      <span *ngIf="sharedService.language === 'en'">Data Protection</span>
+      <span *ngIf="sharedService.language === 'de'">Datenschutz</span>
+    </h3>
+
+    <p>
+      <span *ngIf="sharedService.language === 'en'">
+        The use of our website is usually possible without providing personal
+        data. As far as personal data (e.g., name, address, or email addresses)
+        are collected on our pages, this is done, as far as possible, always on
+        a voluntary basis. These data will not be passed on to third parties
+        without your explicit consent.
+      </span>
+      <span *ngIf="sharedService.language === 'de'">
+        Die Nutzung unserer Webseite ist in der Regel ohne Angabe
+        personenbezogener Daten möglich. Soweit auf unseren Seiten
+        personenbezogene Daten (beispielsweise Name, Anschrift oder
+        E-Mail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf
+        freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche
+        Zustimmung nicht an Dritte weitergegeben.
+      </span>
+    </p>
+
+    <span *ngIf="sharedService.language === 'en'">Impressum from</span>
+    <span *ngIf="sharedService.language === 'de'">Impressum vom</span>
+    <a target="_blank" href="https://www.impressum-generator.de">
+      <span *ngIf="sharedService.language === 'en'">Imprint Generator</span>
+      <span *ngIf="sharedService.language === 'de'">Impressum Generator</span>
+    </a>
+    <span *ngIf="sharedService.language === 'en'">by</span>
+    <span *ngIf="sharedService.language === 'de'">der</span>
+    <a
+      target="_blank"
+      href="https://www.kanzlei-hasselbach.de/standorte/bonn/"
+      rel="nofollow"
+    >
+      Kanzlei Hasselbach, Bonn
+    </a>
+  </section>
+</div>
