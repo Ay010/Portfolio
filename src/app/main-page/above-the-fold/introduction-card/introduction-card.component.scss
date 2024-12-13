@@ -16,9 +16,11 @@
   > div {
     @include dFlex();
 
-    > p {
-      font-size: 64px;
-      transform: rotate(-90deg);
+    .vertical-text {
+      font-size: 55px;
+      writing-mode: vertical-rl;
+      white-space: nowrap;
+      transform: rotate(-180deg);
     }
 
     .title {
@@ -28,6 +30,10 @@
 
     > div {
       transform: rotateY(90deg);
+      height: 100%;
+      flex-direction: column;
+
+      @include dFlex(space-between, start);
     }
   }
 
@@ -35,9 +41,6 @@
     > div {
       .name {
         font-size: 75px;
-      }
-      > p {
-        font-size: 55px;
       }
 
       .title {
@@ -51,7 +54,7 @@
       .name {
         font-size: 65px;
       }
-      > p {
+      > .vertical-text {
         font-size: 45px;
       }
 
@@ -71,7 +74,7 @@
       .name {
         font-size: 60px;
       }
-      > p {
+      > .vertical-text {
         font-size: 40px;
       }
 
@@ -82,12 +85,9 @@
   }
 
   @media (max-width: 850px), (max-height: 700px) {
-    // top: 0px;
     > div {
-      // @include dFlex($ai: stretch);
-      > p {
+      > .vertical-text {
         font-size: 28px;
-        margin-right: -10px;
       }
       .name {
         font-size: 35px;

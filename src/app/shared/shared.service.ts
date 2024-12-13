@@ -12,22 +12,6 @@ export class SharedService {
     event.stopPropagation();
   }
 
-  // Scroll zu einer bestimmten Sektion
-  scrollToSection(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80; // Höhe des Offsets (z.B. Höhe der Navigation)
-      const elementPosition =
-        element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
-    }
-  }
-
   // Prüft, ob ein Element sichtbar ist
   isElementVisible(element: HTMLElement): boolean {
     const rect = element.getBoundingClientRect();

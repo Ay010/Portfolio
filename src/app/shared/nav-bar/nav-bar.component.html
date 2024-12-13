@@ -1,26 +1,18 @@
 <nav>
-  <a href="/"
+  <a href="#above-the-fold"
     ><img class="logo" src="../../../assets/logo.png" alt="Logo" />
   </a>
 
   <ul>
-    <a
-      (click)="navigateToSection('about-me')"
-      [ngClass]="{ active: isActive('about-me') }"
-    >
+    <a href="#about-me" [ngClass]="{ active: isActive('about-me') }">
       <span *ngIf="sharedService.language === 'en'">About me</span>
       <span *ngIf="sharedService.language === 'de'">Über mich</span>
     </a>
-    <a
-      (click)="navigateToSection('skills')"
-      [ngClass]="{ active: isActive('skills') }"
-    >
+    <a href="#skills" [ngClass]="{ active: isActive('skills') }">
       <span *ngIf="sharedService.language === 'en'">Skills</span>
       <span *ngIf="sharedService.language === 'de'">Fähigkeiten</span>
     </a>
-    <a
-      (click)="navigateToSection('portfolio')"
-      [ngClass]="{ active: isActive('portfolio') }"
+    <a href="#portfolio" [ngClass]="{ active: isActive('portfolio') }"
       >Portfolio
     </a>
 
@@ -58,16 +50,19 @@
   [ngClass]="{ open: isMenuOpen }"
 >
   <ul>
-    <a (click)="navigateToSection('about-me')">
+    <a href="#about-me">
       <span *ngIf="sharedService.language === 'en'">About me</span>
       <span *ngIf="sharedService.language === 'de'">Über mich</span></a
     >
-    <a (click)="navigateToSection('skills')">
+
+    <a href="#skills">
       <span *ngIf="sharedService.language === 'en'">My skills</span>
       <span *ngIf="sharedService.language === 'de'">Fähigkeiten</span></a
     >
-    <a (click)="navigateToSection('portfolio')">Portfolio</a>
-    <a (click)="navigateToSection('contact')">
+
+    <a href="#portfolio">Portfolio</a>
+
+    <a href="#contact">
       <span *ngIf="sharedService.language === 'en'">Contact</span>
       <span *ngIf="sharedService.language === 'de'">Kontakt</span></a
     >

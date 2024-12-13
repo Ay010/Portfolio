@@ -1,0 +1,52 @@
+<div class="text-container">
+  <div class="headline-container">
+    <h1 id="my-skills-headline" [@fadeIn]="isTitleVisible ? true : false">
+      <span *ngIf="sharedService.language === 'en'">My skills</span>
+      <span *ngIf="sharedService.language === 'de'">Fähigkeiten</span>
+    </h1>
+
+    <p *ngIf="sharedService.language === 'en'">
+      I have gained experience in building projects with different frontend
+      technologies and concepts.
+    </p>
+
+    <p *ngIf="sharedService.language === 'de'">
+      Ich habe Erfahrung in der Erstellung von Projekten mit verschiedenen
+      Frontend-Technologien und -Konzepten gesammelt.
+    </p>
+  </div>
+
+  <div>
+    <div
+      class="skill-section-text-container"
+      [@fadeInLeft]="isTextContainerVisible ? true : false"
+    >
+      <h2 *ngIf="sharedService.language === 'en'">
+        Looking for <span class="purple">another skill?</span>
+      </h2>
+      <h2 *ngIf="sharedService.language === 'de'">
+        Auf der Suche nach
+        <span class="purple">einer weiteren Fähigkeit?</span>
+      </h2>
+
+      <p *ngIf="sharedService.language === 'en'">
+        Feel free to contact me. I look forward to expanding on my previous
+        knowledge.
+      </p>
+
+      <p *ngIf="sharedService.language === 'de'">
+        Zögern Sie nicht, mich zu kontaktieren. Ich freue mich darauf, mein
+        vorheriges Wissen weiter auszubauen.
+      </p>
+    </div>
+
+    <a [@zoom]="isButtonVisible ? true : false" href="#contact">
+      <app-button
+        class="skill-button"
+        [text]="
+          sharedService.language === 'en' ? 'Get in touch' : 'Kontakt aufnehmen'
+        "
+      ></app-button>
+    </a>
+  </div>
+</div>

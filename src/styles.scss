@@ -15,6 +15,7 @@ $background-color: #141d2f;
   box-sizing: border-box;
   transition: 0.2s;
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -96,6 +97,10 @@ ul {
   color: $primary-color-two;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 body::-webkit-scrollbar {
   width: 12px;
 }
@@ -110,7 +115,8 @@ body::-webkit-scrollbar-track {
   background: rgba(37, 53, 85, 0.5);
 }
 
-app-imprint {
+app-imprint,
+app-privacy-policy {
   @include dFlex();
 }
 

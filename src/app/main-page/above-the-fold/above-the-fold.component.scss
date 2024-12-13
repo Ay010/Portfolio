@@ -20,8 +20,6 @@ app-introduction-card {
   @include dFlex(start, start);
 
   @media (max-width: 1200px) {
-    @include dFlex(start, start);
-
     padding-top: 130px;
     width: 100%;
   }
@@ -101,9 +99,7 @@ app-introduction-card {
   position: absolute;
   right: 0;
   left: 0;
-  // bottom: -80px;
   top: 70%;
-  // height: 400px;
   height: 40%;
   width: 100%;
   z-index: 1;
@@ -151,13 +147,6 @@ app-introduction-card {
   }
 }
 
-// Media Queries
-@media (min-height: 1200px) and (min-width: 800px) and (max-width: 1500px) {
-  // .bg {
-  //   bottom: 130px;
-  // }
-}
-
 @media (max-width: 1300px) {
   app-introduction-card {
     width: 80%;
@@ -188,16 +177,10 @@ app-introduction-card {
       height: 100%;
       transform: unset;
     }
-
-    .img-bg {
-      // max-width: 65%;
-      // max-height: 43vh;
-    }
   }
 
   .bg {
     top: 40vh;
-    // height: 300px;
   }
 
   .scroll-text {
@@ -206,14 +189,6 @@ app-introduction-card {
 }
 
 @media (max-width: 850px) {
-  //   .img-container {
-  //     .person,
-  //     .img-bg {
-  //       max-width: 100%;
-  //       max-height: 43vh;
-  //     }
-  //   }
-
   .email {
     display: none;
   }

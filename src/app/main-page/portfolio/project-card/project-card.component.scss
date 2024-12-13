@@ -4,7 +4,6 @@
   width: 100%;
   max-width: 100%;
   min-width: 100%;
-
   @include dFlex($gap: 35px);
 
   > img {
@@ -21,15 +20,9 @@
 
   @media (max-width: 1000px) {
     flex-direction: column;
-
     text-align: center;
 
-    > div {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 1000px) {
+    > div,
     > img {
       width: 100%;
     }
@@ -41,7 +34,6 @@
   font-size: 23px;
   padding: 15px 0;
   flex-wrap: wrap;
-
   @include dFlex(start, $gap: 10px);
 
   @media (max-width: 1000px) {
@@ -52,7 +44,6 @@
 .btn-container {
   padding-top: 40px;
   width: 100%;
-
   @include dFlex(start, $gap: 70px);
 
   @media (max-width: 1000px) {
@@ -70,6 +61,7 @@
 
   .used-technologies-container {
     @include dFlex(end, $gap: 10px);
+
     @media (max-width: 1000px) {
       @include dFlex(center, $gap: 10px);
     }

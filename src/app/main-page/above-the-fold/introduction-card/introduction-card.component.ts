@@ -11,14 +11,11 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrls: ['./introduction-card.component.scss'],
 })
 export class IntroductionCardComponent implements OnInit {
-  public isTitleVisible: boolean = false; // Anfangszustand ist false
+  public isTitleVisible: boolean = false;
 
   constructor(public sharedService: SharedService) {}
 
   ngOnInit(): void {
-    // Sobald die Komponente initialisiert wird, setzen wir isTitleVisible auf true
-    setTimeout(() => {
-      this.isTitleVisible = true; // Aktiviert die Animation
-    }, 300); // Setze dies auf 0ms, um es sofort nach der Initialisierung anzuwenden
+    setTimeout(() => (this.isTitleVisible = true), 300);
   }
 }

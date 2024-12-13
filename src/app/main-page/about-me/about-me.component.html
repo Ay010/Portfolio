@@ -118,14 +118,8 @@
         </div>
       </div>
     </div>
-    <div
-      [@openClose]="elementsState['imgContainer'] ? true : false"
-      class="img-container"
-    >
-      <div class="img-circle">
-        <img src="../../../assets/Face.png" alt="Person" />
-      </div>
-      <div class="line"></div>
-    </div>
+    <app-profile-image
+      [isOpen]="elementsState['imgContainer']"
+    ></app-profile-image>
   </section>
 </div>

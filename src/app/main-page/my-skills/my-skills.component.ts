@@ -10,153 +10,76 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { SkillsTextComponent } from './skills-text/skills-text.component';
 
 @Component({
   selector: 'app-my-skills',
   standalone: true,
-  imports: [ButtonComponent, SkillIconComponent, NgFor, NgIf],
+  imports: [
+    ButtonComponent,
+    SkillIconComponent,
+    NgFor,
+    NgIf,
+    SkillsTextComponent,
+  ],
   templateUrl: './my-skills.component.html',
   styleUrls: ['./my-skills.component.scss'],
   animations: [
-    trigger('fadeIn', [
-      state(
-        'true',
-        style({
-          opacity: 1,
-        })
-      ),
-      state(
-        'false',
-        style({
-          opacity: 0,
-        })
-      ),
-      transition('* => false', [animate('0.3s')]),
-      transition('* => true', [animate('0.5s ease-out')]),
-    ]),
     trigger('fadeInShadow', [
-      state(
-        'true',
-        style({
-          opacity: 1,
-        })
-      ),
-      state(
-        'false',
-        style({
-          opacity: 0,
-        })
-      ),
-      transition('* => false', [animate('0.8s')]),
-      transition('* => true', [animate('0.8s 0.3s ease-out')]),
+      state('true', style({ opacity: 1 })),
+      state('false', style({ opacity: 0 })),
+      transition('* => false', animate('0.8s')),
+      transition('* => true', animate('0.8s 0.3s ease-out')),
     ]),
     trigger('spinIn', [
-      state(
-        'true',
-        style({
-          transform: 'rotateX(0)',
-        })
-      ),
-      state(
-        'false',
-        style({
-          transform: 'rotateX(90deg)',
-        })
-      ),
-      transition('* => false', [animate('0.3s')]),
-      transition('* => true', [animate('0.3s 0.5s')]),
-    ]),
-    trigger('zoom', [
-      state(
-        'true',
-        style({
-          transform: 'scale(1)',
-        })
-      ),
-      state(
-        'false',
-        style({
-          transform: 'scale(0) translateY(-100px)',
-        })
-      ),
-      transition('* => false', [animate('0.3s')]),
-      transition('* => true', [animate('0.5s 0.3s ease-out')]),
-    ]),
-    trigger('fadeInLeft', [
-      state(
-        'true',
-        style({
-          transform: 'translateX(0)',
-          opacity: 1,
-        })
-      ),
-      state(
-        'false',
-        style({
-          transform: 'translateX(-20%)',
-          opacity: 0,
-        })
-      ),
-      transition('* => false', [animate('0.3s')]),
-      transition('* => true', [animate('1s 0.3s ease-out')]),
+      state('true', style({ transform: 'rotateX(0)' })),
+      state('false', style({ transform: 'rotateX(90deg)' })),
+      transition('* => false', animate('0.3s')),
+      transition('* => true', animate('0.3s 0.5s')),
     ]),
   ],
 })
 export class MySkillsComponent {
-  public isTitleVisible: boolean = false;
-  public iconStates: boolean[] = []; // Stellen Sie sicher, dass iconStates ein Array von boolean ist
-  public isLastIconVisible: boolean = false;
-  public isButtonVisible: boolean = false;
-  public isTextContainerVisible: boolean = false;
-  public isGreenShadowVisible: boolean = false;
+  public isTitleVisible = false;
+  public iconStates: boolean[] = [];
+  public isLastIconVisible = false;
+  public isButtonVisible = false;
+  public isTextContainerVisible = false;
+  public isGreenShadowVisible = false;
 
   constructor(public sharedService: SharedService) {}
 
   @HostListener('window:scroll', [])
-  onWindowScroll() {
-    // Verwenden des Services, um die Sichtbarkeit zu überprüfen
-    this.sharedService.updateElementVisibility(
-      '#my-skills-headline',
-      'isTitleVisible',
-      this
-    );
-    this.sharedService.updateElementVisibility(
-      '.skill-button',
-      'isButtonVisible',
-      this
-    );
-    this.sharedService.updateElementVisibility(
-      '.skill-section-green-shadow',
-      'isGreenShadowVisible',
-      this
-    );
-    this.sharedService.updateElementVisibility(
-      '.skill-section-text-container',
-      'isTextContainerVisible',
-      this
-    );
+  onWindowScroll(): void {
+    const elementsToCheck = [
+      { selector: '#my-skills-headline', property: 'isTitleVisible' },
+      { selector: '.skill-button', property: 'isButtonVisible' },
+      {
+        selector: '.skill-section-green-shadow',
+        property: 'isGreenShadowVisible',
+      },
+      {
+        selector: '.skill-section-text-container',
+        property: 'isTextContainerVisible',
+      },
+      { selector: '.last-icon', property: 'isLastIconVisible' },
+    ];
 
-    this.sharedService.updateElementVisibility(
-      '.last-icon',
-      'isLastIconVisible',
-      this
+    elementsToCheck.forEach(({ selector, property }) =>
+      this.sharedService.updateElementVisibility(selector, property, this)
     );
 
     this.updateIconsVisibility();
   }
 
-  updateIconsVisibility() {
-    // Stellt sicher, dass iconStates immer genug Platz für die Icons hat
-    this.iconStates = new Array(this.allIcons.length).fill(false); // Setzt alle Werte auf false, initialisiert das Array
-
-    this.allIcons.forEach((_, index) => {
+  private updateIconsVisibility(): void {
+    this.iconStates = this.allIcons.map((_, index) => {
       const iconContainer = document.querySelectorAll('.skill-icon-container')[
         index
       ] as HTMLElement;
-      if (iconContainer) {
-        this.iconStates[index] =
-          this.sharedService.isElementVisible(iconContainer);
-      }
+      return iconContainer
+        ? this.sharedService.isElementVisible(iconContainer)
+        : false;
     });
   }
 
@@ -174,7 +97,6 @@ export class MySkillsComponent {
 </defs>
 </svg>
 `;
-  // public lastIconName: string = 'Continually learning';
 
   public allIcons: { icon: string; iconName: string }[] = [
     {

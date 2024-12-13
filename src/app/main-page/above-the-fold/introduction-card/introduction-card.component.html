@@ -1,7 +1,7 @@
 <div class="introduction-container">
   <div>
-    <p *ngIf="sharedService.language === 'en'">I am</p>
-    <p *ngIf="sharedService.language === 'de'">Ich bin</p>
+    <p *ngIf="sharedService.language === 'en'" class="vertical-text">I am</p>
+    <p *ngIf="sharedService.language === 'de'" class="vertical-text">Ich bin</p>
 
     <div [ngClass]="{ rotate: isTitleVisible }">
       <h1 class="name">Ayyub Qarar</h1>
@@ -14,8 +14,11 @@
     </div>
   </div>
 
-  <app-button
-    (click)="sharedService.scrollToSection('contact')"
-    [text]="sharedService.language === 'en' ? 'Let’s talk!' : 'Lass uns reden!'"
-  ></app-button>
+  <a href="#contact">
+    <app-button
+      [text]="
+        sharedService.language === 'en' ? 'Let’s talk!' : 'Lass uns reden!'
+      "
+    ></app-button>
+  </a>
 </div>

@@ -18,58 +18,22 @@ import { SharedService } from '../../../shared/shared.service';
   styleUrls: ['./project-card.component.scss'],
   animations: [
     trigger('rotateIn', [
-      state(
-        'true',
-        style({
-          transform: 'rotateX(0deg)', // Bild in seine finale Position drehen
-          opacity: 1, // Bild sichtbar machen
-        })
-      ),
-      state(
-        'false',
-        style({
-          transform: 'rotateX(-90deg)', // Bild von der Seite kommen lassen
-          opacity: 0, // Bild unsichtbar machen
-        })
-      ),
-      transition('* => false', [animate('0.3s ease-out')]), // Übergang von sichtbar zu unsichtbar
-      transition('* => true', [animate('0.3s 0.2s ease-out')]), // Übergang von unsichtbar zu sichtbar
+      state('true', style({ transform: 'rotateX(0deg)', opacity: 1 })),
+      state('false', style({ transform: 'rotateX(-90deg)', opacity: 0 })),
+      transition('* => false', [animate('0.3s ease-out')]),
+      transition('* => true', [animate('0.3s 0.2s ease-out')]),
     ]),
     trigger('fadeIn', [
-      state(
-        'true',
-        style({
-          opacity: 1,
-          transform: 'translateY(0)',
-        })
-      ),
-      state(
-        'false',
-        style({
-          opacity: 0,
-          transform: 'translateY(15px)',
-        })
-      ),
+      state('true', style({ opacity: 1, transform: 'translateY(0)' })),
+      state('false', style({ opacity: 0, transform: 'translateY(15px)' })),
       transition('* => false', [animate('0.3s ease-out')]),
       transition('* => true', [animate('0.3s 0.2s ease-out')]),
     ]),
     trigger('scaleIn', [
-      state(
-        'true',
-        style({
-          transform: 'scale(1)', // Endgröße
-          opacity: 1,
-        })
-      ),
-      state(
-        'false',
-        style({
-          transform: 'scale(0)', // Anfangsgröße
-          opacity: 0,
-        })
-      ),
-      transition('* => false', [animate('0.3s ease-out')]), // Übergang von groß zu klein
-      transition('* => true', [animate('0.2s 0.5s ease-out')]), // Übergang von klein zu groß
+      state('true', style({ transform: 'scale(1)', opacity: 1 })),
+      state('false', style({ transform: 'scale(0)', opacity: 0 })),
+      transition('* => false', [animate('0.3s ease-out')]),
+      transition('* => true', [animate('0.2s 0.5s ease-out')]),
     ]),
   ],
 })
@@ -82,54 +46,41 @@ export class ProjectCardComponent {
   @Input() websiteLink: string = '';
   @Input() reverse: boolean = false;
   @Input() i: number = 0;
-  public isImageVisible: boolean = false;
-  public isTitleVisible: boolean = false;
-  public isTechnologiesVisible: boolean = false;
-  public isDescriptionVisible: boolean = false;
-  public isLiveTestButtonVisible: boolean = false;
-  public isGithubButtonVisible: boolean = false;
+
+  public isImageVisible = false;
+  public isTitleVisible = false;
+  public isTechnologiesVisible = false;
+  public isDescriptionVisible = false;
+  public isLiveTestButtonVisible = false;
+  public isGithubButtonVisible = false;
 
   constructor(public sharedService: SharedService) {}
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const selector = `#project-image-${this.i}`;
-    const containerSelector = `#project-container-${this.i}`;
-    const liveTestSelector = `#live-test-button-${this.i}`;
-    const githubSelector = `#github-button-${this.i}`;
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    const elementIds = [
+      { id: `#project-image-${this.i}`, visibilityKey: 'isImageVisible' },
+      { id: `#project-container-${this.i}`, visibilityKey: 'isTitleVisible' },
+      {
+        id: `#project-container-${this.i}`,
+        visibilityKey: 'isTechnologiesVisible',
+      },
+      {
+        id: `#project-container-${this.i}`,
+        visibilityKey: 'isDescriptionVisible',
+      },
+      {
+        id: `#live-test-button-${this.i}`,
+        visibilityKey: 'isLiveTestButtonVisible',
+      },
+      {
+        id: `#github-button-${this.i}`,
+        visibilityKey: 'isGithubButtonVisible',
+      },
+    ];
 
-    this.sharedService.updateElementVisibility(
-      selector,
-      'isImageVisible',
-      this
-    );
-
-    this.sharedService.updateElementVisibility(
-      containerSelector,
-      'isTitleVisible',
-      this
-    );
-    this.sharedService.updateElementVisibility(
-      containerSelector,
-      'isTechnologiesVisible',
-      this
-    );
-    this.sharedService.updateElementVisibility(
-      containerSelector,
-      'isDescriptionVisible',
-      this
-    );
-
-    this.sharedService.updateElementVisibility(
-      liveTestSelector,
-      'isLiveTestButtonVisible',
-      this
-    );
-
-    this.sharedService.updateElementVisibility(
-      githubSelector,
-      'isGithubButtonVisible',
-      this
+    elementIds.forEach(({ id, visibilityKey }) =>
+      this.sharedService.updateElementVisibility(id, visibilityKey, this)
     );
   }
 }

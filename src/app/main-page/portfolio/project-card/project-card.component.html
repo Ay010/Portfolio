@@ -43,7 +43,7 @@
       >
         <app-button
           [buttonType]="'purple-bg'"
-          [text]="'Live test'"
+          [text]="sharedService.language === 'en' ? 'Live test' : 'Live-Test'"
         ></app-button>
       </a>
 

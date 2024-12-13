@@ -26,20 +26,8 @@ button {
   }
 }
 
-@media (max-width: 650px) {
-  button {
-    font-size: 16px;
-  }
-}
-
 .purple-bg {
   background-color: $primary-color-two;
-  color: white;
-  font-size: 23px;
-  border-radius: 10px;
-  padding: 15px 30px;
-  cursor: pointer;
-  transition: 0.1s ease-out;
 
   &:hover {
     background-color: $primary-color;
@@ -48,24 +36,12 @@ button {
 
   &:active {
     background-color: #ffffff;
-    color: black;
-    padding: 15px 30px;
-  }
-
-  @media (max-width: 650px) {
-    font-size: 16px;
   }
 }
 
 .green-border {
   background-color: #0000;
   border: 1px solid $primary-color;
-  color: white;
-  font-size: 23px;
-  border-radius: 10px;
-  padding: 15px 30px;
-  cursor: pointer;
-  transition: 0.1s ease-out;
 
   &:hover {
     background-color: $primary-color;
@@ -75,11 +51,6 @@ button {
   &:active {
     background-color: #ffffff;
     color: $primary-color-two;
-    padding: 15px 30px;
     border: 1px solid rgba(0, 0, 0, 0);
-  }
-
-  @media (max-width: 650px) {
-    font-size: 16px;
   }
 }

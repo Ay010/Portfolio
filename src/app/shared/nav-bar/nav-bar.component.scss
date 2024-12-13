@@ -140,6 +140,11 @@ nav {
       font-size: 23px;
       color: white;
       text-decoration: none;
+      transition: 0s;
+
+      &:hover {
+        color: #70e61c;
+      }
     }
   }
 }

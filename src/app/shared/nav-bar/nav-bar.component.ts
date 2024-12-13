@@ -10,62 +10,42 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
-  isMenuOpen = false;
-  activeSection: string | null = null; // to track the active section
+  public isMenuOpen: boolean = false;
+  public activeSection: string | null = null;
 
   constructor(public sharedService: SharedService) {}
 
-  toggleMenu() {
+  public toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
-    document.getElementById('body')?.classList.toggle('overflow-hidden');
     document.body.classList.toggle('overflow-hidden');
   }
 
-  closeMobileNav() {
+  public closeMobileNav(): void {
     this.isMenuOpen = false;
-    document.getElementById('body')?.classList.remove('overflow-hidden');
     document.body.classList.remove('overflow-hidden');
   }
 
-  changeLanguage(language: string) {
+  public changeLanguage(language: string): void {
     this.sharedService.language = language;
   }
 
-  navigateToSection(sectionId: string) {
-    this.sharedService.scrollToSection(sectionId);
-  }
-
-  // Listen to scroll events
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
+  @HostListener('window:scroll')
+  public onWindowScroll(): void {
     const sections = ['about-me', 'skills', 'portfolio'];
-    let foundSection = false;
-
-    for (const sectionId of sections) {
-      const sectionElement = document.getElementById(sectionId);
-      if (sectionElement) {
-        const rect = sectionElement.getBoundingClientRect();
-
-        // Check if section is currently in the viewport vertically
-        if (
-          rect.top <= window.innerHeight / 2 &&
-          rect.bottom >= window.innerHeight / 2
-        ) {
-          this.activeSection = sectionId;
-          foundSection = true;
-          break;
+    this.activeSection =
+      sections.find((sectionId) => {
+        const sectionElement = document.getElementById(sectionId);
+        if (sectionElement) {
+          const { top, bottom } = sectionElement.getBoundingClientRect();
+          return (
+            top <= window.innerHeight / 2 && bottom >= window.innerHeight / 2
+          );
         }
-      }
-    }
-
-    // Clear activeSection if no sections are visible
-    if (!foundSection) {
-      this.activeSection = null;
-    }
+        return false;
+      }) || null;
   }
 
-  // Check if a section is active
-  isActive(sectionId: string): boolean {
+  public isActive(sectionId: string): boolean {
     return this.activeSection === sectionId;
   }
 }

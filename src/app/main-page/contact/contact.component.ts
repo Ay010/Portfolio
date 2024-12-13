@@ -4,61 +4,60 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { SharedService } from '../../shared/shared.service';
 import { HttpClient } from '@angular/common/http';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ButtonComponent, FormsModule, NgIf],
+  imports: [ButtonComponent, FormsModule, NgIf, ContactFormComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
-  contactData = {
-    name: '',
-    email: '',
-    message: '',
-  };
-  public agree = false;
-  public submitAttempted = false;
+  // public contactData: { name: string; email: string; message: string } = {
+  //   name: '',
+  //   email: '',
+  //   message: '',
+  // };
+  // public agree: boolean = false;
+  // public submitAttempted: boolean = false;
+  // public mailTest: boolean = true;
 
-  mailTest = true;
+  // private http = inject(HttpClient);
 
-  http = inject(HttpClient);
-
-  post = {
-    endPoint: 'https://deineDomain.de/sendMail.php',
-    body: (payload: any) => JSON.stringify(payload),
-    options: {
-      headers: {
-        'Content-Type': 'text/plain',
-        responseType: 'text',
-      },
-    },
-  };
+  // private readonly postConfig = {
+  //   endPoint: 'https://deineDomain.de/sendMail.php',
+  //   options: {
+  //     headers: { 'Content-Type': 'text/plain', responseType: 'text' },
+  //   },
+  // };
 
   constructor(public sharedService: SharedService) {}
 
-  toggleAgree() {
-    this.agree = !this.agree;
-    this.submitAttempted = true;
-  }
+  // public toggleAgree(): void {
+  //   this.agree = !this.agree;
+  //   this.submitAttempted = true;
+  // }
 
-  onSubmit(ngForm: NgForm) {
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      this.http
-        .post(this.post.endPoint, this.post.body(this.contactData))
-        .subscribe({
-          next: (response) => {
-            ngForm.resetForm();
-          },
-          error: (error) => {
-            console.error(error);
-          },
-          complete: () => console.info('send post complete'),
-        });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      console.log(ngForm.value);
-      ngForm.resetForm();
-    }
-  }
+  // public onSubmit(ngForm: NgForm): void {
+  //   if (!ngForm.submitted || !ngForm.form.valid) return;
+
+  //   if (this.mailTest) {
+  //     console.log(ngForm.value);
+  //   } else {
+  //     this.http
+  //       .post(
+  //         this.postConfig.endPoint,
+  //         JSON.stringify(this.contactData),
+  //         this.postConfig.options
+  //       )
+  //       .subscribe({
+  //         next: () => ngForm.resetForm(),
+  //         error: (error) => console.error(error),
+  //         complete: () => console.info('Post request completed'),
+  //       });
+  //   }
+
+  //   ngForm.resetForm();
+  // }
 }

@@ -7,17 +7,17 @@ import { NgClass, NgFor } from '@angular/common';
   standalone: true,
   imports: [TestimonialCardComponent, NgFor, NgClass],
   templateUrl: './testimonial-list.component.html',
-  styleUrl: './testimonial-list.component.scss',
+  styleUrls: ['./testimonial-list.component.scss'],
 })
 export class TestimonialListComponent {
   public currentTestimonial: number = 0;
 
-  public allTestimonials: {
+  public allTestimonials: Array<{
     name: string;
     position: string;
     text: string;
     image: string;
-  }[] = [
+  }> = [
     {
       name: 'V. Schuster',
       position: 'Team Partner',
@@ -38,18 +38,21 @@ export class TestimonialListComponent {
     },
   ];
 
-  previousTestimonial(): void {
-    if (this.currentTestimonial > 0) this.currentTestimonial--;
-    else this.currentTestimonial = this.allTestimonials.length - 1;
+  public previousTestimonial(): void {
+    this.currentTestimonial =
+      this.currentTestimonial > 0
+        ? this.currentTestimonial - 1
+        : this.allTestimonials.length - 1;
   }
 
-  nextTestimonial(): void {
-    if (this.currentTestimonial < this.allTestimonials.length - 1)
-      this.currentTestimonial++;
-    else this.currentTestimonial = 0;
+  public nextTestimonial(): void {
+    this.currentTestimonial =
+      this.currentTestimonial < this.allTestimonials.length - 1
+        ? this.currentTestimonial + 1
+        : 0;
   }
 
-  setCurrentTestimonial(index: number): void {
+  public setCurrentTestimonial(index: number): void {
     this.currentTestimonial = index;
   }
 }

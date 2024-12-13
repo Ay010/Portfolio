@@ -15,42 +15,27 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [IntroductionCardComponent, NgIf],
   templateUrl: './above-the-fold.component.html',
-  styleUrl: './above-the-fold.component.scss',
+  styleUrls: ['./above-the-fold.component.scss'],
   animations: [
     trigger('fadeInShadow', [
-      state(
-        'true',
-        style({
-          opacity: 1,
-        })
-      ),
-      state(
-        'false',
-        style({
-          opacity: 0,
-        })
-      ),
-      transition('* => false', [animate('0.8s')]),
-      transition('* => true', [animate('0.5s 0.3s ease-out')]),
+      state('true', style({ opacity: 1 })),
+      state('false', style({ opacity: 0 })),
+      transition('* => false', animate('0.8s')),
+      transition('* => true', animate('0.5s 0.3s ease-out')),
     ]),
   ],
 })
 export class AboveTheFoldComponent {
-  public isShadowVisible: any = false;
+  public isShadowVisible: boolean = false;
 
   constructor(public sharedService: SharedService) {}
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    // Verwenden des Services, um die Sichtbarkeit zu überprüfen
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
     this.sharedService.updateElementVisibility(
       '.above-the-fold-section-purple-shadow',
       'isShadowVisible',
       this
     );
-  }
-
-  navigateToSection(sectionId: string) {
-    this.sharedService.scrollToSection(sectionId);
   }
 }

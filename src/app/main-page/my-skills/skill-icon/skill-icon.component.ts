@@ -11,22 +11,21 @@ import { SharedService } from '../../../shared/shared.service';
   styleUrls: ['./skill-icon.component.scss'],
 })
 export class SkillIconComponent {
-  @Input() lastIcon: boolean = false;
-
-  @Input() iconName: string = '';
+  @Input() public lastIcon: boolean = false;
+  @Input() public iconName: string = '';
 
   private _icon: string = '';
-  sanitizedIcon: SafeHtml = '';
+  public sanitizedIcon: SafeHtml = '';
 
   constructor(
-    private sanitizer: DomSanitizer,
-    public sharedService: SharedService
+    private readonly sanitizer: DomSanitizer,
+    public readonly sharedService: SharedService
   ) {}
 
   @Input()
   set icon(value: string) {
     this._icon = value;
-    this.sanitizedIcon = this.sanitizer.bypassSecurityTrustHtml(this._icon);
+    this.sanitizedIcon = this.sanitizer.bypassSecurityTrustHtml(value);
   }
 
   get icon(): string {

@@ -18,56 +18,9 @@ import {
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
   animations: [
-    trigger('fadeIn', [
-      state(
-        'true',
-        style({
-          opacity: 1,
-        })
-      ),
-      state(
-        'false',
-        style({
-          opacity: 0,
-        })
-      ),
-      transition('* => false', [animate('0.5s')]),
-      transition('* => true', [animate('0.7s 0.2s ease-out')]),
-    ]),
-    trigger('slideInFromBottom', [
-      state(
-        'true',
-        style({
-          transform: 'translateY(0)',
-          opacity: 1,
-        })
-      ),
-      state(
-        'false',
-        style({
-          transform: 'translateY(50px)',
-          opacity: 0,
-        })
-      ),
-      transition('* => false', [animate('0.5s ease-out')]),
-      transition('* => true', [animate('0.5s 0.2s ease-out')]),
-    ]),
-    trigger('fadeInShadow', [
-      state(
-        'true',
-        style({
-          opacity: 1,
-        })
-      ),
-      state(
-        'false',
-        style({
-          opacity: 0,
-        })
-      ),
-      transition('* => false', [animate('0.5s')]),
-      transition('* => true', [animate('0.7s 0.2s ease-out')]),
-    ]),
+    createFadeTrigger('fadeIn'),
+    createSlideTrigger('slideInFromBottom', 'translateY(50px)'),
+    createFadeTrigger('fadeInShadow'),
   ],
 })
 export class PortfolioComponent {
@@ -76,47 +29,9 @@ export class PortfolioComponent {
   public isPurpleShadowVisible: boolean = false;
   public isGreenShadowVisible: boolean = false;
 
-  constructor(public sharedService: SharedService) {}
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.sharedService.updateElementVisibility(
-      '.portfolio-section-title',
-      'isTitleVisible',
-      this
-    );
-
-    this.sharedService.updateElementVisibility(
-      '.portfolio-description',
-      'isDescriptionVisible',
-      this
-    );
-
-    this.sharedService.updateElementVisibility(
-      '.portfolio-section-purple-shadow', // Selektor für das Purple Shadow Bild
-      'isPurpleShadowVisible',
-      this
-    );
-    this.sharedService.updateElementVisibility(
-      '.portfolio-section-green-shadow', // Selektor für das Green Shadow Bild
-      'isGreenShadowVisible',
-      this
-    );
-  }
-
-  public projects: {
-    projectName: { en: string; de: string };
-    projectDescription: { en: string; de: string };
-    projectImage: string;
-    usedTechnologies: string[];
-    githubLink: string;
-    websiteLink: string;
-  }[] = [
+  public projects: Project[] = [
     {
-      projectName: {
-        en: 'Join',
-        de: 'Join',
-      },
+      projectName: { en: 'Join', de: 'Join' },
       projectDescription: {
         en: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
         de: 'Task-Manager inspiriert vom Kanban-System. Erstellen und organisieren Sie Aufgaben mit Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.',
@@ -127,13 +42,10 @@ export class PortfolioComponent {
       websiteLink: '',
     },
     {
-      projectName: {
-        en: 'Pokédex',
-        de: 'Pokédex',
-      },
+      projectName: { en: 'Pokédex', de: 'Pokédex' },
       projectDescription: {
-        en: 'Based on the PokéAPI a simple library that provides and catalogues pokemon information.',
-        de: 'Basierend auf der PokéAPI eine einfache Bibliothek, die Pokémon-Informationen bereitstellt und katalogisiert.',
+        en: 'Based on the PokéAPI, a simple library that provides and catalogues Pokémon information.',
+        de: 'Basierend auf der PokéAPI, eine einfache Bibliothek, die Pokémon-Informationen bereitstellt und katalogisiert.',
       },
       projectImage: 'pokedex.png',
       usedTechnologies: ['JavaScript', 'HTML', 'CSS', 'Api'],
@@ -141,12 +53,9 @@ export class PortfolioComponent {
       websiteLink: '',
     },
     {
-      projectName: {
-        en: 'El pollo loco',
-        de: 'El pollo loco',
-      },
+      projectName: { en: 'El pollo loco', de: 'El pollo loco' },
       projectDescription: {
-        en: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.',
+        en: 'Jump, run and throw game based on an object-oriented approach. Help Pepe to find coins and Tabasco salsa to fight against the crazy hen.',
         de: 'Spring-, Lauf- und Wurfspiel basierend auf objektorientiertem Ansatz. Helfen Sie Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen.',
       },
       projectImage: 'Sharkie photo.png',
@@ -155,4 +64,52 @@ export class PortfolioComponent {
       websiteLink: '',
     },
   ];
+
+  constructor(public sharedService: SharedService) {}
+
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const elements = [
+      { selector: '.portfolio-section-title', prop: 'isTitleVisible' },
+      { selector: '.portfolio-description', prop: 'isDescriptionVisible' },
+      {
+        selector: '.portfolio-section-purple-shadow',
+        prop: 'isPurpleShadowVisible',
+      },
+      {
+        selector: '.portfolio-section-green-shadow',
+        prop: 'isGreenShadowVisible',
+      },
+    ];
+    elements.forEach(({ selector, prop }) =>
+      this.sharedService.updateElementVisibility(selector, prop, this)
+    );
+  }
+}
+
+type Project = {
+  projectName: { en: string; de: string };
+  projectDescription: { en: string; de: string };
+  projectImage: string;
+  usedTechnologies: string[];
+  githubLink: string;
+  websiteLink: string;
+};
+
+function createFadeTrigger(name: string) {
+  return trigger(name, [
+    state('true', style({ opacity: 1 })),
+    state('false', style({ opacity: 0 })),
+    transition('* => false', [animate('0.5s')]),
+    transition('* => true', [animate('0.7s 0.2s ease-out')]),
+  ]);
+}
+
+function createSlideTrigger(name: string, translateYValue: string) {
+  return trigger(name, [
+    state('true', style({ transform: 'translateY(0)', opacity: 1 })),
+    state('false', style({ transform: translateYValue, opacity: 0 })),
+    transition('* => false', [animate('0.5s ease-out')]),
+    transition('* => true', [animate('0.5s 0.2s ease-out')]),
+  ]);
 }
