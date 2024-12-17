@@ -36,10 +36,10 @@ export class PortfolioComponent {
         en: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
         de: 'Task-Manager inspiriert vom Kanban-System. Erstellen und organisieren Sie Aufgaben mit Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.',
       },
-      projectImage: 'join.png',
+      projectImage: 'join2.png',
       usedTechnologies: ['JavaScript', 'HTML', 'CSS', 'Firebase'],
       githubLink: 'https://github.com/MarcelZalec/JOIN',
-      websiteLink: '',
+      websiteLink: 'http://join.ayyub-qarar.de/summary.html',
     },
     {
       projectName: { en: 'Pokédex', de: 'Pokédex' },
@@ -47,10 +47,10 @@ export class PortfolioComponent {
         en: 'Based on the PokéAPI, a simple library that provides and catalogues Pokémon information.',
         de: 'Basierend auf der PokéAPI, eine einfache Bibliothek, die Pokémon-Informationen bereitstellt und katalogisiert.',
       },
-      projectImage: 'pokedex.png',
+      projectImage: 'pokedex2.png',
       usedTechnologies: ['JavaScript', 'HTML', 'CSS', 'Api'],
       githubLink: 'https://github.com/Ay010/Pokedex',
-      websiteLink: '',
+      websiteLink: 'http://pokedex.ayyub-qarar.de',
     },
     {
       projectName: { en: 'El pollo loco', de: 'El pollo loco' },
@@ -58,10 +58,10 @@ export class PortfolioComponent {
         en: 'Jump, run and throw game based on an object-oriented approach. Help Pepe to find coins and Tabasco salsa to fight against the crazy hen.',
         de: 'Spring-, Lauf- und Wurfspiel basierend auf objektorientiertem Ansatz. Helfen Sie Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen.',
       },
-      projectImage: 'Sharkie photo.png',
+      projectImage: 'el-pllo-loco.png',
       usedTechnologies: ['JavaScript', 'HTML', 'CSS'],
       githubLink: 'https://github.com/Ay010/El-pollo-loco',
-      websiteLink: '',
+      websiteLink: 'http://el-pollo-loco.ayyub-qarar.de',
     },
   ];
 

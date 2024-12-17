@@ -1,0 +1,19 @@
+@import "../../styles.scss";
+
+section {
+  min-height: calc(100vh - 285px);
+  padding: 100px 30px 50px 30px;
+  flex-direction: column;
+  text-align: center;
+
+  @include dFlex($gap: 20px);
+}
+
+svg {
+  height: 70px;
+  fill: $primary-color;
+}
+
+.btn {
+  padding-top: 30px;
+}

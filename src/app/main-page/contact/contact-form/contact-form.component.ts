@@ -3,6 +3,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { SharedService } from '../../../shared/shared.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-form',
@@ -20,13 +21,13 @@ export class ContactFormComponent {
   public agree: boolean = false;
   public submitAttempted: boolean = false;
 
-  constructor(public sharedService: SharedService) {}
+  constructor(public sharedService: SharedService, private router: Router) {}
 
   public mailTest: boolean = false;
   private http = inject(HttpClient);
 
   private readonly postConfig = {
-    endPoint: 'http://ayyub-qarar.de/sendMail.php',
+    endPoint: 'https://ayyub-qarar.de/sendMail.php',
     options: {
       headers: { 'Content-Type': 'text/plain', responseType: 'text' },
     },
@@ -42,6 +43,7 @@ export class ContactFormComponent {
 
     if (this.mailTest) {
       console.log(ngForm.value);
+      this.router.navigate(['/message-sent']);
     } else {
       this.http
         .post(
@@ -50,7 +52,9 @@ export class ContactFormComponent {
           this.postConfig.options
         )
         .subscribe({
-          next: () => ngForm.resetForm(),
+          next: () => {
+            this.router.navigate(['/message-sent']);
+          },
           error: (error) => console.error(error),
           complete: () => console.info('Post request completed'),
         });

@@ -4,10 +4,12 @@
   width: 100%;
   max-width: 100%;
   min-width: 100%;
-  @include dFlex($gap: 35px);
+  @include dFlex($gap: 60px);
 
   > img {
     width: 50%;
+    border: 5px solid $primary-color-two;
+    border-radius: 30px;
   }
 
   > div {
