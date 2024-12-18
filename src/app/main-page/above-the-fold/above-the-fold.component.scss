@@ -176,6 +176,7 @@ app-introduction-card {
       max-height: 50vh;
       height: 100%;
       transform: unset;
+      max-width: 115vw;
     }
   }
 
@@ -185,6 +186,13 @@ app-introduction-card {
 
   .scroll-text {
     display: none;
+  }
+}
+
+@media (max-width: 850px) and (min-height: 900px) {
+  .bg {
+    top: 350px;
+    width: 150%;
   }
 }
 

@@ -5,8 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class SharedService {
   public language: string = 'en';
+  localStorage = window.localStorage;
 
-  constructor() {}
+  constructor() {
+    this.getDataFromLocalStorage();
+  }
+
+  getDataFromLocalStorage() {
+    const language = localStorage.getItem('language');
+    if (language !== null) {
+      this.language = language;
+    }
+  }
 
   stopEvent(event: any) {
     event.stopPropagation();

@@ -8,6 +8,14 @@ nav {
   right: 0;
   background-color: #141d2f;
   color: white;
+  max-height: 100px;
+  z-index: 999;
+}
+
+nav > div {
+  width: 100%;
+  background-color: #141d2f;
+  color: white;
   padding: 37px 100px;
   max-height: 100px;
   z-index: 999;
@@ -28,7 +36,6 @@ nav {
 
   > ul {
     padding: 0;
-    // width: 480px;
 
     @include dFlex(space-between, $gap: 25px);
 
@@ -39,19 +46,17 @@ nav {
       @include dFlex();
 
       &:hover {
-        color: #70e61c;
+        color: $primary-color;
       }
 
       &::after {
         content: "";
         transition: 0.3s ease-in-out;
-        background-color: #9747ff;
+        background-color: $primary-color-two;
         border-radius: 10px;
         height: 3px;
         width: 0%;
         position: absolute;
-        // right: 0;
-        // left: 0;
         bottom: -5px;
       }
 
@@ -61,7 +66,7 @@ nav {
     }
 
     .active {
-      color: #70e61c;
+      color: $primary-color;
 
       &::after {
         content: "";
@@ -119,22 +124,22 @@ nav {
   left: 0;
   bottom: 0;
   height: 100vh;
-  width: 100%; // Breite des Menüs
-  background-color: #141d2fc9;
+  width: 100%;
+  background-color: rgba(20, 29, 47, 0.9);
   z-index: 100;
   color: white;
-  transform: translateX(100%); // Startposition außerhalb des Bildschirms
-  transition: transform 0.3s ease; // Übergangsanimation
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
 
-  @include dFlex(); // Behalte die Flex-Eigenschaften bei
+  @include dFlex();
 
   &.open {
-    transform: translateX(0); // Schiebe das Menü ins Bild
+    transform: translateX(0);
   }
 
   ul {
     flex-direction: column;
-    @include dFlex($gap: 15px); // Behalte die Flex-Eigenschaften bei
+    @include dFlex($gap: 15px);
 
     a {
       font-size: 23px;
@@ -143,7 +148,7 @@ nav {
       transition: 0s;
 
       &:hover {
-        color: #70e61c;
+        color: $primary-color;
       }
     }
   }

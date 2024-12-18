@@ -12,6 +12,7 @@ import { SharedService } from '../shared.service';
 export class NavBarComponent {
   public isMenuOpen: boolean = false;
   public activeSection: string | null = null;
+  localStorage = window.localStorage;
 
   constructor(public sharedService: SharedService) {}
 
@@ -27,6 +28,7 @@ export class NavBarComponent {
 
   public changeLanguage(language: string): void {
     this.sharedService.language = language;
+    this.localStorage.setItem('language', language);
   }
 
   @HostListener('window:scroll')
