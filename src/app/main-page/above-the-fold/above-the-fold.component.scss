@@ -4,10 +4,15 @@ section {
   height: 100vh;
   position: relative;
   z-index: 1;
+  flex-direction: column;
+
+  @include dFlex($jc: start);
 
   .header {
     padding-top: 110px;
     height: 91vh;
+    max-width: 2000px;
+    width: 100%;
 
     @include dFlex();
   }
