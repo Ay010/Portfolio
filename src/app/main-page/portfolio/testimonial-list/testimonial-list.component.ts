@@ -3,11 +3,10 @@ import { TestimonialCardComponent } from './testimonial-card/testimonial-card.co
 import { NgClass, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-testimonial-list',
-  standalone: true,
-  imports: [TestimonialCardComponent, NgFor, NgClass],
-  templateUrl: './testimonial-list.component.html',
-  styleUrls: ['./testimonial-list.component.scss'],
+    selector: 'app-testimonial-list',
+    imports: [TestimonialCardComponent, NgFor, NgClass],
+    templateUrl: './testimonial-list.component.html',
+    styleUrls: ['./testimonial-list.component.scss']
 })
 export class TestimonialListComponent {
   public currentTestimonial: number = 0;

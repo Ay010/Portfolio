@@ -12,16 +12,15 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-portfolio',
-  standalone: true,
-  imports: [ProjectCardComponent, NgFor, TestimonialListComponent, NgIf],
-  templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss',
-  animations: [
-    createFadeTrigger('fadeIn'),
-    createSlideTrigger('slideInFromBottom', 'translateY(50px)'),
-    createFadeTrigger('fadeInShadow'),
-  ],
+    selector: 'app-portfolio',
+    imports: [ProjectCardComponent, NgFor, TestimonialListComponent, NgIf],
+    templateUrl: './portfolio.component.html',
+    styleUrl: './portfolio.component.scss',
+    animations: [
+        createFadeTrigger('fadeIn'),
+        createSlideTrigger('slideInFromBottom', 'translateY(50px)'),
+        createFadeTrigger('fadeInShadow'),
+    ]
 })
 export class PortfolioComponent {
   public isTitleVisible: boolean = false;

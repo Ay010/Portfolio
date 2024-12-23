@@ -3,11 +3,10 @@ import { Component, HostListener } from '@angular/core';
 import { SharedService } from '../shared.service';
 
 @Component({
-  selector: 'app-nav-bar',
-  standalone: true,
-  imports: [NgClass, NgIf],
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss'],
+    selector: 'app-nav-bar',
+    imports: [NgClass, NgIf],
+    templateUrl: './nav-bar.component.html',
+    styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
   public isMenuOpen: boolean = false;

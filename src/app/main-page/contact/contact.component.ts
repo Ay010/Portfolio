@@ -7,11 +7,10 @@ import { HttpClient } from '@angular/common/http';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  imports: [ButtonComponent, FormsModule, NgIf, ContactFormComponent],
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+    selector: 'app-contact',
+    imports: [ButtonComponent, FormsModule, NgIf, ContactFormComponent],
+    templateUrl: './contact.component.html',
+    styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
   // public contactData: { name: string; email: string; message: string } = {

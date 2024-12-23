@@ -6,11 +6,10 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-contact-form',
-  standalone: true,
-  imports: [FormsModule, NgIf],
-  templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.scss'],
+    selector: 'app-contact-form',
+    imports: [FormsModule, NgIf],
+    templateUrl: './contact-form.component.html',
+    styleUrls: ['./contact-form.component.scss']
 })
 export class ContactFormComponent {
   public contactData: { name: string; email: string; message: string } = {

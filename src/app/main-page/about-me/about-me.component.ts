@@ -11,19 +11,18 @@ import { NgIf } from '@angular/common';
 import { ProfileImageComponent } from './profile-image/profile-image.component';
 
 @Component({
-  selector: 'app-about-me',
-  standalone: true,
-  imports: [NgIf, ProfileImageComponent],
-  templateUrl: './about-me.component.html',
-  styleUrls: ['./about-me.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      state('true', style({ opacity: 1 })),
-      state('false', style({ opacity: 0 })),
-      transition('* => false', animate('0.4s ease-in')),
-      transition('* => true', animate('0.5s 0.2s ease-out')),
-    ]),
-  ],
+    selector: 'app-about-me',
+    imports: [NgIf, ProfileImageComponent],
+    templateUrl: './about-me.component.html',
+    styleUrls: ['./about-me.component.scss'],
+    animations: [
+        trigger('fadeIn', [
+            state('true', style({ opacity: 1 })),
+            state('false', style({ opacity: 0 })),
+            transition('* => false', animate('0.4s ease-in')),
+            transition('* => true', animate('0.5s 0.2s ease-out')),
+        ]),
+    ]
 })
 export class AboutMeComponent {
   public elementsState: Record<string, boolean> = {

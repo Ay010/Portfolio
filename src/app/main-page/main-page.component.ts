@@ -6,16 +6,15 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 
 @Component({
-  selector: 'app-main-page',
-  standalone: true,
-  imports: [
-    AboveTheFoldComponent,
-    AboutMeComponent,
-    MySkillsComponent,
-    PortfolioComponent,
-    ContactComponent,
-  ],
-  templateUrl: './main-page.component.html',
-  styleUrl: './main-page.component.scss',
+    selector: 'app-main-page',
+    imports: [
+        AboveTheFoldComponent,
+        AboutMeComponent,
+        MySkillsComponent,
+        PortfolioComponent,
+        ContactComponent,
+    ],
+    templateUrl: './main-page.component.html',
+    styleUrl: './main-page.component.scss'
 })
 export class MainPageComponent {}

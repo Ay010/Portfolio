@@ -13,31 +13,30 @@ import {
 import { SkillsTextComponent } from './skills-text/skills-text.component';
 
 @Component({
-  selector: 'app-my-skills',
-  standalone: true,
-  imports: [
-    ButtonComponent,
-    SkillIconComponent,
-    NgFor,
-    NgIf,
-    SkillsTextComponent,
-  ],
-  templateUrl: './my-skills.component.html',
-  styleUrls: ['./my-skills.component.scss'],
-  animations: [
-    trigger('fadeInShadow', [
-      state('true', style({ opacity: 1 })),
-      state('false', style({ opacity: 0 })),
-      transition('* => false', animate('0.8s')),
-      transition('* => true', animate('0.8s 0.3s ease-out')),
-    ]),
-    trigger('spinIn', [
-      state('true', style({ transform: 'rotateX(0)' })),
-      state('false', style({ transform: 'rotateX(90deg)' })),
-      transition('* => false', animate('0.3s')),
-      transition('* => true', animate('0.3s 0.5s')),
-    ]),
-  ],
+    selector: 'app-my-skills',
+    imports: [
+        ButtonComponent,
+        SkillIconComponent,
+        NgFor,
+        NgIf,
+        SkillsTextComponent,
+    ],
+    templateUrl: './my-skills.component.html',
+    styleUrls: ['./my-skills.component.scss'],
+    animations: [
+        trigger('fadeInShadow', [
+            state('true', style({ opacity: 1 })),
+            state('false', style({ opacity: 0 })),
+            transition('* => false', animate('0.8s')),
+            transition('* => true', animate('0.8s 0.3s ease-out')),
+        ]),
+        trigger('spinIn', [
+            state('true', style({ transform: 'rotateX(0)' })),
+            state('false', style({ transform: 'rotateX(90deg)' })),
+            transition('* => false', animate('0.3s')),
+            transition('* => true', animate('0.3s 0.5s')),
+        ]),
+    ]
 })
 export class MySkillsComponent {
   public isTitleVisible = false;

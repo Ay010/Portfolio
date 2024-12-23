@@ -4,11 +4,10 @@ import { SharedService } from '../../../shared/shared.service';
 import { NgClass, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-introduction-card',
-  standalone: true,
-  imports: [ButtonComponent, NgClass, NgIf],
-  templateUrl: './introduction-card.component.html',
-  styleUrls: ['./introduction-card.component.scss'],
+    selector: 'app-introduction-card',
+    imports: [ButtonComponent, NgClass, NgIf],
+    templateUrl: './introduction-card.component.html',
+    styleUrls: ['./introduction-card.component.scss']
 })
 export class IntroductionCardComponent implements OnInit {
   public isTitleVisible: boolean = false;

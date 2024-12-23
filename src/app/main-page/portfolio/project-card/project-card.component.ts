@@ -11,31 +11,30 @@ import {
 import { SharedService } from '../../../shared/shared.service';
 
 @Component({
-  selector: 'app-project-card',
-  standalone: true,
-  imports: [ButtonComponent, NgFor, NgIf, NgClass],
-  templateUrl: './project-card.component.html',
-  styleUrls: ['./project-card.component.scss'],
-  animations: [
-    trigger('rotateIn', [
-      state('true', style({ transform: 'rotateX(0deg)', opacity: 1 })),
-      state('false', style({ transform: 'rotateX(-90deg)', opacity: 0 })),
-      transition('* => false', [animate('0.3s ease-out')]),
-      transition('* => true', [animate('0.3s 0.2s ease-out')]),
-    ]),
-    trigger('fadeIn', [
-      state('true', style({ opacity: 1, transform: 'translateY(0)' })),
-      state('false', style({ opacity: 0, transform: 'translateY(15px)' })),
-      transition('* => false', [animate('0.3s ease-out')]),
-      transition('* => true', [animate('0.3s 0.2s ease-out')]),
-    ]),
-    trigger('scaleIn', [
-      state('true', style({ transform: 'scale(1)', opacity: 1 })),
-      state('false', style({ transform: 'scale(0)', opacity: 0 })),
-      transition('* => false', [animate('0.3s ease-out')]),
-      transition('* => true', [animate('0.2s 0.5s ease-out')]),
-    ]),
-  ],
+    selector: 'app-project-card',
+    imports: [ButtonComponent, NgFor, NgIf, NgClass],
+    templateUrl: './project-card.component.html',
+    styleUrls: ['./project-card.component.scss'],
+    animations: [
+        trigger('rotateIn', [
+            state('true', style({ transform: 'rotateX(0deg)', opacity: 1 })),
+            state('false', style({ transform: 'rotateX(-90deg)', opacity: 0 })),
+            transition('* => false', [animate('0.3s ease-out')]),
+            transition('* => true', [animate('0.3s 0.2s ease-out')]),
+        ]),
+        trigger('fadeIn', [
+            state('true', style({ opacity: 1, transform: 'translateY(0)' })),
+            state('false', style({ opacity: 0, transform: 'translateY(15px)' })),
+            transition('* => false', [animate('0.3s ease-out')]),
+            transition('* => true', [animate('0.3s 0.2s ease-out')]),
+        ]),
+        trigger('scaleIn', [
+            state('true', style({ transform: 'scale(1)', opacity: 1 })),
+            state('false', style({ transform: 'scale(0)', opacity: 0 })),
+            transition('* => false', [animate('0.3s ease-out')]),
+            transition('* => true', [animate('0.2s 0.5s ease-out')]),
+        ]),
+    ]
 })
 export class ProjectCardComponent {
   @Input() projectName: { en: string; de: string } = { en: '', de: '' };

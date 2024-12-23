@@ -4,11 +4,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { SharedService } from '../../../shared/shared.service';
 
 @Component({
-  selector: 'app-skill-icon',
-  standalone: true,
-  imports: [NgClass, NgIf],
-  templateUrl: './skill-icon.component.html',
-  styleUrls: ['./skill-icon.component.scss'],
+    selector: 'app-skill-icon',
+    imports: [NgClass, NgIf],
+    templateUrl: './skill-icon.component.html',
+    styleUrls: ['./skill-icon.component.scss']
 })
 export class SkillIconComponent {
   @Input() public lastIcon: boolean = false;
