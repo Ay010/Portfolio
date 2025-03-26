@@ -12,15 +12,15 @@ import {
 } from '@angular/animations';
 
 @Component({
-    selector: 'app-portfolio',
-    imports: [ProjectCardComponent, NgFor, TestimonialListComponent, NgIf],
-    templateUrl: './portfolio.component.html',
-    styleUrl: './portfolio.component.scss',
-    animations: [
-        createFadeTrigger('fadeIn'),
-        createSlideTrigger('slideInFromBottom', 'translateY(50px)'),
-        createFadeTrigger('fadeInShadow'),
-    ]
+  selector: 'app-portfolio',
+  imports: [ProjectCardComponent, NgFor, TestimonialListComponent, NgIf],
+  templateUrl: './portfolio.component.html',
+  styleUrl: './portfolio.component.scss',
+  animations: [
+    createFadeTrigger('fadeIn'),
+    createSlideTrigger('slideInFromBottom', 'translateY(50px)'),
+    createFadeTrigger('fadeInShadow'),
+  ],
 })
 export class PortfolioComponent {
   public isTitleVisible: boolean = false;
@@ -61,6 +61,17 @@ export class PortfolioComponent {
       usedTechnologies: ['JavaScript', 'HTML', 'CSS'],
       githubLink: 'https://github.com/Ay010/El-pollo-loco',
       websiteLink: 'http://el-pollo-loco.ayyub-qarar.de',
+    },
+    {
+      projectName: { en: 'Bubble', de: 'Bubble' },
+      projectDescription: {
+        en: 'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.',
+        de: 'Diese App ist eine Slack-Klon-App. Sie revolutioniert die Teamkommunikation und Zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeit-Nachrichtenübermittlung und robusten Kanalorganisation.',
+      },
+      projectImage: 'bubble.jpg',
+      usedTechnologies: ['Angular', 'TypeScript', 'Firebase', 'Tailwind CSS'],
+      githubLink: 'https://github.com/sprrwDE/DABubble',
+      websiteLink: 'https://bubble.ayyub-qarar.de',
     },
   ];
 

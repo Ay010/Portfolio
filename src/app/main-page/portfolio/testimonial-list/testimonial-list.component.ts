@@ -3,10 +3,10 @@ import { TestimonialCardComponent } from './testimonial-card/testimonial-card.co
 import { NgClass, NgFor } from '@angular/common';
 
 @Component({
-    selector: 'app-testimonial-list',
-    imports: [TestimonialCardComponent, NgFor, NgClass],
-    templateUrl: './testimonial-list.component.html',
-    styleUrls: ['./testimonial-list.component.scss']
+  selector: 'app-testimonial-list',
+  imports: [TestimonialCardComponent, NgFor, NgClass],
+  templateUrl: './testimonial-list.component.html',
+  styleUrls: ['./testimonial-list.component.scss'],
 })
 export class TestimonialListComponent {
   public currentTestimonial: number = 0;
@@ -18,22 +18,10 @@ export class TestimonialListComponent {
     image: string;
   }> = [
     {
-      name: 'V. Schuster',
+      name: 'Simon Kiesner',
       position: 'Team Partner',
-      text: "Michael really kept the team together with his great organization and clear communication. We wouldn't have got this far without his commitment.",
+      text: 'Ich hatte die Freude, mit Ayyub bei der Erstellung unseres Join-Projekts zusammenzuarbeiten. Seine Genauigkeit bei der Bearbeitung seiner Aufgaben sowie seine Geduld und Hilfsbereitschaft bei sämtlichen Coding-Herausforderungen trugen zu einer sehr angenehmen Atmosphäre innerhalb unserer Gruppe bei. Besonders beeindruckend war seine Fähigkeit, sich schnell auch in fremdem Code zurechtzufinden, was maßgeblich zum Erfolg unseres Projekts beitrug',
       image: 'person2.png',
-    },
-    {
-      name: 'John Doe',
-      position: 'Project Manager',
-      text: 'Michi was a top team colleague at DA. His positive commitment and willingness to take on responsibility made a significant contribution to us achieving our goals.',
-      image: 'person3.png',
-    },
-    {
-      name: 'Jane Smith',
-      position: 'Software Engineer',
-      text: 'It was a great pleasure to work with Michael. He knows how to push and encourage team members to present the best work possible, always adding something to brainstorm. Regarding the well-being of group members, he was always present and available to listen and help others, with a great sense of humor as well.',
-      image: 'person4.png',
     },
   ];
 
