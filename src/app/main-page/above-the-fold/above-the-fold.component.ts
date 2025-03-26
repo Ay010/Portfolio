@@ -11,18 +11,18 @@ import {
 import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-above-the-fold',
-  imports: [IntroductionCardComponent, NgIf],
-  templateUrl: './above-the-fold.component.html',
-  styleUrls: ['./above-the-fold.component.scss'],
-  animations: [
-    trigger('fadeInShadow', [
-      state('true', style({ opacity: 1 })),
-      state('false', style({ opacity: 0 })),
-      transition('* => false', animate('0.8s')),
-      transition('* => true', animate('0.5s 0.3s ease-out')),
-    ]),
-  ],
+    selector: 'app-above-the-fold',
+    imports: [IntroductionCardComponent, NgIf],
+    templateUrl: './above-the-fold.component.html',
+    styleUrls: ['./above-the-fold.component.scss'],
+    animations: [
+        trigger('fadeInShadow', [
+            state('true', style({ opacity: 1 })),
+            state('false', style({ opacity: 0 })),
+            transition('* => false', animate('0.8s')),
+            transition('* => true', animate('0.5s 0.3s ease-out')),
+        ]),
+    ]
 })
 export class AboveTheFoldComponent {
   public isShadowVisible: boolean = false;

@@ -9,86 +9,24 @@ section {
   @include dFlex($jc: start);
 
   .header {
-    padding-top: 80px;
-    height: 75vh;
+    padding-top: 110px;
+    height: 91vh;
     max-width: 2000px;
     width: 100%;
-    position: relative;
-    overflow: hidden;
 
-    @include dFlex(center);
-
-    .left-shadow {
-      position: absolute;
-      left: -15%;
-      top: 10%;
-      height: 80%;
-      z-index: -1;
-      opacity: 0.8;
-    }
-
-    .right-shadow {
-      position: absolute;
-      right: -15%;
-      top: 10%;
-      height: 80%;
-      z-index: -1;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 850px) {
-      .left-shadow,
-      .right-shadow {
-        height: 70%;
-        top: 0;
-      }
-      .left-shadow {
-        left: -30%;
-      }
-      .right-shadow {
-        right: -30%;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .left-shadow,
-      .right-shadow {
-        height: 60%;
-        opacity: 0.9;
-      }
-      .left-shadow {
-        left: -20%;
-      }
-      .right-shadow {
-        right: -20%;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .left-shadow,
-      .right-shadow {
-        height: 60%;
-        opacity: 1;
-      }
-      .left-shadow {
-        left: -30%;
-      }
-      .right-shadow {
-        right: -30%;
-      }
-    }
+    @include dFlex();
   }
 }
 
 app-introduction-card {
-  width: 100%;
+  width: 80%;
   height: 100%;
-  max-width: 800px;
 
   @include dFlex(start, start);
 
   @media (max-width: 1200px) {
     padding-top: 130px;
+    width: 100%;
   }
 }
 
@@ -131,9 +69,6 @@ app-introduction-card {
   width: 100%;
   margin-left: 100px;
   position: relative;
-  height: 25vh;
-  display: flex;
-  align-items: center;
 
   @include dFlex();
 }
@@ -143,14 +78,8 @@ app-introduction-card {
   width: 100%;
   position: relative;
   z-index: 10;
-  padding: 20px 0;
 
-  @include dFlex(start, $gap: 42px);
-
-  svg {
-    width: 35px;
-    height: 35px;
-  }
+  @include dFlex(start, $gap: 32px);
 
   &::after {
     content: "";
@@ -175,8 +104,8 @@ app-introduction-card {
   position: absolute;
   right: 0;
   left: 0;
-  top: 60%;
-  height: 45%;
+  top: 70%;
+  height: 40%;
   width: 100%;
   z-index: 1;
 }
@@ -193,8 +122,6 @@ app-introduction-card {
   svg {
     margin-left: 5px;
     transform: rotate(-90deg);
-    width: 16px;
-    height: 16px;
   }
 
   &:hover {
@@ -242,6 +169,19 @@ app-introduction-card {
   section {
     .header {
       flex-direction: column;
+    }
+  }
+
+  .img-container {
+    height: 45vh;
+    width: 100%;
+    position: relative;
+
+    .person {
+      max-height: 50vh;
+      height: 100%;
+      transform: unset;
+      max-width: 115vw;
     }
   }
 
