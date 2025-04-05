@@ -13,30 +13,30 @@ import {
 import { SkillsTextComponent } from './skills-text/skills-text.component';
 
 @Component({
-    selector: 'app-my-skills',
-    imports: [
-        ButtonComponent,
-        SkillIconComponent,
-        NgFor,
-        NgIf,
-        SkillsTextComponent,
-    ],
-    templateUrl: './my-skills.component.html',
-    styleUrls: ['./my-skills.component.scss'],
-    animations: [
-        trigger('fadeInShadow', [
-            state('true', style({ opacity: 1 })),
-            state('false', style({ opacity: 0 })),
-            transition('* => false', animate('0.8s')),
-            transition('* => true', animate('0.8s 0.3s ease-out')),
-        ]),
-        trigger('spinIn', [
-            state('true', style({ transform: 'rotateX(0)' })),
-            state('false', style({ transform: 'rotateX(90deg)' })),
-            transition('* => false', animate('0.3s')),
-            transition('* => true', animate('0.3s 0.5s')),
-        ]),
-    ]
+  selector: 'app-my-skills',
+  imports: [
+    ButtonComponent,
+    SkillIconComponent,
+    NgFor,
+    NgIf,
+    SkillsTextComponent,
+  ],
+  templateUrl: './my-skills.component.html',
+  styleUrls: ['./my-skills.component.scss'],
+  animations: [
+    trigger('fadeInShadow', [
+      state('true', style({ opacity: 1 })),
+      state('false', style({ opacity: 0 })),
+      transition('* => false', animate('0.8s')),
+      transition('* => true', animate('0.8s 0.3s ease-out')),
+    ]),
+    trigger('spinIn', [
+      state('true', style({ transform: 'rotateX(0)' })),
+      state('false', style({ transform: 'rotateX(90deg)' })),
+      transition('* => false', animate('0.3s')),
+      transition('* => true', animate('0.3s 0.5s')),
+    ]),
+  ],
 })
 export class MySkillsComponent {
   public isTitleVisible = false;
@@ -186,6 +186,11 @@ export class MySkillsComponent {
 </svg>
 `,
       iconName: 'Material Design',
+    },
+    {
+      icon: `<svg width="60" height="60" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><title>file_type_tailwind</title><path d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z" style="fill:#ffffff"></path></g></svg>
+`,
+      iconName: 'Tailwind',
     },
   ];
 }

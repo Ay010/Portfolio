@@ -68,7 +68,7 @@ export class PortfolioComponent {
         en: 'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.',
         de: 'Diese App ist eine Slack-Klon-App. Sie revolutioniert die Teamkommunikation und Zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeit-Nachrichtenübermittlung und robusten Kanalorganisation.',
       },
-      projectImage: 'bubble.jpg',
+      projectImage: 'bubble.png',
       usedTechnologies: ['Angular', 'TypeScript', 'Firebase', 'Tailwind CSS'],
       githubLink: 'https://github.com/sprrwDE/DABubble',
       websiteLink: 'https://bubble.ayyub-qarar.de',
