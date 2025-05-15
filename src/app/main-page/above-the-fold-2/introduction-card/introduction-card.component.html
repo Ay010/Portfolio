@@ -1,0 +1,24 @@
+<div class="introduction-container">
+  <div>
+    <p *ngIf="sharedService.language === 'en'" class="vertical-text">I am</p>
+    <p *ngIf="sharedService.language === 'de'" class="vertical-text">Ich bin</p>
+
+    <div [ngClass]="{ rotate: isTitleVisible }">
+      <h1 class="name">Ayyub Qarar</h1>
+      <p class="title purple" *ngIf="sharedService.language === 'en'">
+        FRONTEND DEVELOPER
+      </p>
+      <p class="title purple" *ngIf="sharedService.language === 'de'">
+        FRONTEND ENTWICKLER
+      </p>
+    </div>
+  </div>
+
+  <a href="#contact">
+    <app-button
+      [text]="
+        sharedService.language === 'en' ? 'Let’s talk!' : 'Lass uns reden!'
+      "
+    ></app-button>
+  </a>
+</div>

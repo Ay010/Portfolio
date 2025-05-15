@@ -1,0 +1,189 @@
+@import "../../../styles.scss";
+
+section {
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  flex-direction: column;
+  width: 100%;
+
+  @include dFlex($jc: start);
+
+  .header {
+    padding-top: 110px;
+    height: 91vh;
+    max-width: 2000px;
+    width: 100%;
+    position: relative;
+
+    @include dFlex();
+
+    img {
+      position: absolute;
+      right: 0;
+      height: 100%;
+
+      transform: translateX(40%);
+
+      &:first-child {
+        left: 0;
+        transform: translateX(-40%);
+      }
+    }
+
+    @media (max-width: 1550px) {
+      img {
+        transform: translateX(50%);
+        height: 90%;
+
+        &:first-child {
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    @media (max-width: 1200px) {
+      img {
+        transform: translateX(60%);
+        height: 90%;
+
+        &:first-child {
+          transform: translateX(-60%);
+        }
+      }
+    }
+
+    @media (max-width: 850px) {
+      img {
+        transform: translateX(70%);
+        height: 90%;
+
+        &:first-child {
+          top: 0;
+          transform: translateX(-60%);
+          height: 80%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+app-introduction-card {
+  width: 100%;
+  height: 100%;
+  @include dFlex(center, none);
+}
+
+.icon-line-container {
+  width: 100%;
+  margin-left: 100px;
+  position: relative;
+
+  @include dFlex();
+}
+
+.icon-container {
+  max-width: 2000px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+
+  @include dFlex(start, $gap: 32px);
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: calc(100% + 20px);
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100vw;
+    background-color: $primary-color-two;
+    border-radius: 10px;
+    z-index: 10;
+  }
+
+  a {
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+}
+
+.scroll-text {
+  font-size: 23px;
+  position: absolute;
+  right: 20px;
+  bottom: 120px;
+  transform: rotate(90deg);
+  z-index: 10;
+  cursor: pointer;
+
+  svg {
+    margin-left: 5px;
+    transform: rotate(-90deg);
+  }
+
+  &:hover {
+    transform: rotate(90deg) translateX(20px);
+  }
+}
+
+.scroll-text-link {
+  position: relative;
+  z-index: 10;
+}
+
+.purple-shadow {
+  position: absolute;
+  right: 0;
+  bottom: -550px;
+  transform: translateX(50%);
+  z-index: 2;
+
+  @media (max-width: 850px) {
+    height: 600px;
+    bottom: -700px;
+    transform: translateX(60%);
+  }
+
+  @media (max-width: 600px) {
+    height: 500px;
+  }
+}
+
+// @media (max-width: 1300px) {
+//   app-introduction-card {
+//     width: 80%;
+//   }
+// }
+
+@media (max-width: 850px) {
+  app-introduction-card {
+    // padding-top: 0;
+    // width: 100%;
+    // @include dFlex(center, center);
+  }
+
+  section {
+    .header {
+      flex-direction: column;
+    }
+  }
+
+  .scroll-text {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .email {
+    display: none;
+  }
+
+  app-introduction-card {
+    // padding-top: 0;
+    // width: 100%;
+    // @include dFlex(center, center);
+  }
+}

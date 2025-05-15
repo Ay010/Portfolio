@@ -1,0 +1,159 @@
+@import "../../../../styles.scss";
+
+.introduction-container {
+  z-index: 3;
+  position: relative;
+  // position: absolute;
+  flex-direction: column;
+  // transition: 0.2s;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  height: 80%;
+  width: 100%;
+  @include dFlex();
+
+  > div {
+    @include dFlex();
+
+    .vertical-text {
+      font-size: 90px;
+      writing-mode: vertical-rl;
+      white-space: nowrap;
+      transform: rotate(-180deg);
+    }
+
+    .title {
+      font-size: 58px;
+      transform: translateY(-20px);
+    }
+
+    > div {
+      transform: rotateY(90deg);
+      height: 100%;
+      flex-direction: column;
+
+      @include dFlex(space-between, start);
+    }
+  }
+
+  @media (max-width: 15500px) {
+    > div {
+      .name {
+        font-size: 128px;
+      }
+
+      .title {
+        font-size: 60px;
+      }
+    }
+  }
+
+  @media (max-width: 1350px) {
+    > div {
+      .name {
+        font-size: 110px;
+      }
+
+      > .vertical-text {
+        font-size: 70px;
+      }
+
+      .title {
+        font-size: 50px;
+      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 1100px) {
+    > div {
+      .name {
+        font-size: 90px;
+      }
+      > .vertical-text {
+        font-size: 50px;
+      }
+
+      .title {
+        font-size: 40px;
+      }
+    }
+  }
+
+  @media (max-width: 850px), (max-height: 700px) {
+    > div {
+      > .vertical-text {
+        font-size: 40px;
+      }
+      .name {
+        font-size: 80px;
+      }
+      .title {
+        font-size: 30px;
+      }
+      > div {
+        padding-bottom: 10px;
+      }
+    }
+    height: 100%;
+  }
+
+  @media (max-width: 700px) {
+    > div {
+      > .vertical-text {
+        font-size: 35px;
+      }
+      .name {
+        font-size: 70px;
+      }
+      .title {
+        font-size: 30px;
+        padding-top: 8px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    > div {
+      > .vertical-text {
+        font-size: 30px;
+      }
+      .name {
+        font-size: 50px;
+      }
+      .title {
+        font-size: 24px;
+      }
+    }
+  }
+
+  @media (max-width: 450px) {
+    > div {
+      > .vertical-text {
+        font-size: 25px;
+      }
+      .name {
+        font-size: 38px;
+      }
+      .title {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .rotate {
+    transform: rotateY(0deg) !important;
+    transition: transform 0.5s ease;
+  }
+
+  @media (max-width: 850px) and (min-height: 950px) {
+    // padding-top: 30px;
+  }
+}

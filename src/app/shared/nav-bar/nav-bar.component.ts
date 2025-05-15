@@ -3,10 +3,10 @@ import { Component, HostListener } from '@angular/core';
 import { SharedService } from '../shared.service';
 
 @Component({
-    selector: 'app-nav-bar',
-    imports: [NgClass, NgIf],
-    templateUrl: './nav-bar.component.html',
-    styleUrls: ['./nav-bar.component.scss']
+  selector: 'app-nav-bar',
+  imports: [NgClass, NgIf],
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
   public isMenuOpen: boolean = false;
@@ -18,6 +18,11 @@ export class NavBarComponent {
   public toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
     document.body.classList.toggle('overflow-hidden');
+
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileNav) {
+      mobileNav.style.transition = 'transform 0.3s ease';
+    }
   }
 
   public closeMobileNav(): void {
