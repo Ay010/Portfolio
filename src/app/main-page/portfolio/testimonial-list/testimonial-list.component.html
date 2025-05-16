@@ -1,8 +1,16 @@
 <div class="testimonial-list-container">
   <app-testimonial-card
     [name]="allTestimonials[currentTestimonial].name"
-    [position]="allTestimonials[currentTestimonial].position"
-    [text]="allTestimonials[currentTestimonial].text"
+    [position]="
+      sharedService.language === 'en'
+        ? allTestimonials[currentTestimonial].position.en
+        : allTestimonials[currentTestimonial].position.de
+    "
+    [text]="
+      sharedService.language === 'en'
+        ? allTestimonials[currentTestimonial].text.en
+        : allTestimonials[currentTestimonial].text.de
+    "
     [image]="allTestimonials[currentTestimonial].image"
   ></app-testimonial-card>
 
