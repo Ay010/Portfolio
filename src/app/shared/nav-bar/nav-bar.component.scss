@@ -129,6 +129,7 @@ nav > div {
   z-index: 100;
   color: white;
   transform: translateX(100%);
+  transition: none;
 
   @include dFlex();
 

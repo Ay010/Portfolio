@@ -15,6 +15,7 @@ $background-color: #141d2f;
   box-sizing: border-box;
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  transition: 0.3s ease;
 }
 
 body {
@@ -102,16 +103,19 @@ ul {
 
 body::-webkit-scrollbar {
   width: 12px;
+  transition: none;
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: $primary-color-two;
   border-radius: 10px;
   border: 3px solid transparent;
+  transition: none;
 }
 
 body::-webkit-scrollbar-track {
   background: rgba(37, 53, 85, 0.5);
+  transition: none;
 }
 
 app-imprint,
