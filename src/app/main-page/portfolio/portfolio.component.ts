@@ -30,6 +30,28 @@ export class PortfolioComponent {
 
   public projects: Project[] = [
     {
+      projectName: { en: 'Bubble', de: 'Bubble' },
+      projectDescription: {
+        en: 'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.',
+        de: 'Diese App ist eine Slack-Klon-App. Sie revolutioniert die Teamkommunikation und Zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeit-Nachrichtenübermittlung und robusten Kanalorganisation.',
+      },
+      projectImage: 'bubble.png',
+      usedTechnologies: ['Angular', 'TypeScript', 'Firebase', 'Tailwind CSS'],
+      githubLink: 'https://github.com/sprrwDE/DABubble',
+      websiteLink: 'https://bubble.ayyub-qarar.de',
+    },
+    {
+      projectName: { en: 'El pollo loco', de: 'El pollo loco' },
+      projectDescription: {
+        en: 'Jump, run and throw game based on an object-oriented approach. Help Pepe to find coins and Tabasco salsa to fight against the crazy hen.',
+        de: 'Spring-, Lauf- und Wurfspiel basierend auf objektorientiertem Ansatz. Helfen Sie Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen.',
+      },
+      projectImage: 'el-pllo-loco.png',
+      usedTechnologies: ['JavaScript', 'HTML', 'CSS'],
+      githubLink: 'https://github.com/Ay010/El-pollo-loco',
+      websiteLink: 'http://el-pollo-loco.ayyub-qarar.de',
+    },
+    {
       projectName: { en: 'Join', de: 'Join' },
       projectDescription: {
         en: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
@@ -50,28 +72,6 @@ export class PortfolioComponent {
       usedTechnologies: ['JavaScript', 'HTML', 'CSS', 'Api'],
       githubLink: 'https://github.com/Ay010/Pokedex',
       websiteLink: 'http://pokedex.ayyub-qarar.de',
-    },
-    {
-      projectName: { en: 'El pollo loco', de: 'El pollo loco' },
-      projectDescription: {
-        en: 'Jump, run and throw game based on an object-oriented approach. Help Pepe to find coins and Tabasco salsa to fight against the crazy hen.',
-        de: 'Spring-, Lauf- und Wurfspiel basierend auf objektorientiertem Ansatz. Helfen Sie Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen.',
-      },
-      projectImage: 'el-pllo-loco.png',
-      usedTechnologies: ['JavaScript', 'HTML', 'CSS'],
-      githubLink: 'https://github.com/Ay010/El-pollo-loco',
-      websiteLink: 'http://el-pollo-loco.ayyub-qarar.de',
-    },
-    {
-      projectName: { en: 'Bubble', de: 'Bubble' },
-      projectDescription: {
-        en: 'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.',
-        de: 'Diese App ist eine Slack-Klon-App. Sie revolutioniert die Teamkommunikation und Zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeit-Nachrichtenübermittlung und robusten Kanalorganisation.',
-      },
-      projectImage: 'bubble.png',
-      usedTechnologies: ['Angular', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-      githubLink: 'https://github.com/sprrwDE/DABubble',
-      websiteLink: 'https://bubble.ayyub-qarar.de',
     },
   ];
 
