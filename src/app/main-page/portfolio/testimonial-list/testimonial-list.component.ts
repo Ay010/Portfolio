@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { TestimonialCardComponent } from './testimonial-card/testimonial-card.component';
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { SharedService } from '../../../shared/shared.service';
 
 @Component({
   selector: 'app-testimonial-list',
-  imports: [TestimonialCardComponent, NgFor, NgClass],
+  imports: [TestimonialCardComponent, NgFor, NgClass, NgIf],
   templateUrl: './testimonial-list.component.html',
   styleUrls: ['./testimonial-list.component.scss'],
 })
