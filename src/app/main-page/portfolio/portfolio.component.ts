@@ -37,7 +37,7 @@ export class PortfolioComponent {
       },
       projectImage: 'bubble.png',
       usedTechnologies: ['Angular', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-      githubLink: 'https://github.com/sprrwDE/DABubble',
+      githubLink: 'https://github.com/Ay010/DABubble',
       websiteLink: 'https://bubble.ayyub-qarar.de',
     },
     {
